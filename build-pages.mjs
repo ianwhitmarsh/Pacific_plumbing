@@ -218,6 +218,8 @@ const services = [
     title: "Emergency Plumber in Tulsa | Pacific Plumbing",
     description:
       "Need an emergency plumber in Tulsa? Pacific Plumbing helps with urgent leaks, backups, water heater problems, and plumbing failures.",
+    image: "assets/emergency-plumbing-service.png",
+    imageAlt: "Pacific Plumbing mascot ready for 24/7 emergency plumbing service",
     h1: "Emergency plumbing help for urgent home problems.",
     intro:
       "Burst pipes, backups, and sudden leaks need clear next steps. Pacific Plumbing helps Tulsa homeowners stabilize the situation, understand the problem, and get a practical fix underway.",

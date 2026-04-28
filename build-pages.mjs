@@ -280,6 +280,8 @@ const services = [
     title: "Gas Line Plumbing in Tulsa | Pacific Plumbing",
     description:
       "Pacific Plumbing provides gas line plumbing support in Tulsa for safe appliance connections, repairs, and planned gas-line work.",
+    image: "assets/gas-lines-service.png",
+    imageAlt: "Pacific Plumbing mascot standing beside a kitchen gas range",
     h1: "Gas line plumbing handled with care.",
     intro:
       "Gas line work needs caution, clarity, and the right process. Pacific Plumbing helps with planned gas-line plumbing needs and can guide homeowners when a gas concern needs immediate attention.",

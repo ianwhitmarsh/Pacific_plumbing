@@ -7,6 +7,11 @@ const site = {
   phoneHref: "tel:9187719078",
   city: "Tulsa",
   image: "/assets/pacific-truck-mascot.png",
+  social: [
+    { name: "Instagram", url: "https://www.instagram.com/pacificplumbingok/?hl=en" },
+    { name: "Facebook", url: "https://www.facebook.com/leftcoastplumber" },
+    { name: "TikTok", url: "https://www.tiktok.com/@pacificplumbingok?_r=1&_t=ZP-95vQKsIayC7" },
+  ],
   description:
     "Pacific Plumbing helps Tulsa homeowners with water heaters, re-pipes, fixtures, water lines, leaks, drains, sewer lines, and emergency plumbing service.",
   areas: [
@@ -18,10 +23,14 @@ const site = {
     "Sand Springs",
     "Glenpool",
     "Claremore",
+    "Collinsville",
+    "Catoosa",
+    "Verdigris",
+    "Sapulpa",
   ],
 };
 
-const scriptVersion = "site-motion-8";
+const scriptVersion = "site-motion-9";
 
 const services = [
   {
@@ -310,11 +319,11 @@ const supportPages = [
     path: "service-areas.html",
     title: "Pacific Plumbing Service Areas | Tulsa Metro Plumber",
     description:
-      "Pacific Plumbing serves Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sand Springs, Glenpool, Claremore, and nearby communities.",
+      "Pacific Plumbing serves Tulsa, Broken Arrow, Bixby, Jenks, Owasso, Sand Springs, Glenpool, Claremore, Collinsville, Catoosa, Verdigris, Sapulpa, and nearby communities.",
     h1: "Tulsa metro plumbing service with local accountability.",
     eyebrow: "Service areas",
     copy:
-      "Pacific Plumbing is built for homeowners across the Tulsa metro who want plumbing help that is clear, prompt, and easy to understand. The site should eventually support dedicated city pages once real service volume and content justify them.",
+      "Pacific Plumbing is built for homeowners across the Tulsa metro who want plumbing help that is clear, prompt, and easy to understand. Explore dedicated plumbing pages for Collinsville, Catoosa, Verdigris, Sapulpa, and other nearby communities.",
     type: "areas",
   },
   {
@@ -361,6 +370,117 @@ const supportPages = [
       "This concept page gives the site a measurable conversion destination. In production, connect the form to the booking system and fire a form-submit conversion event here.",
     type: "thankyou",
     noindex: true,
+  },
+];
+
+const locationPages = [
+  {
+    slug: "collinsville",
+    city: "Collinsville",
+    county: "Tulsa County",
+    keyword: "plumber Collinsville OK",
+    title: "Plumber in Collinsville, OK | Pacific Plumbing",
+    description:
+      "Need a plumber in Collinsville, OK? Pacific Plumbing serves Collinsville homeowners with water heater repair, leak detection, drains, fixtures, re-piping, and plumbing service.",
+    h1: "Collinsville plumbing service with clear next steps.",
+    intro:
+      "Pacific Plumbing helps Collinsville homeowners handle leaks, water heater problems, fixture repairs, drain issues, water lines, and planned plumbing upgrades with the same calm process Tulsa customers expect.",
+    image: "assets/area-collinsville.jpg",
+    imageAlt: "Downtown Collinsville, Oklahoma",
+    imageCredit: "TulGuy via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Collinsville_Downtown_5-2025.jpg",
+    license: "CC0",
+    localDetails: [
+      "Water heater repair and installation for Collinsville homes that need hot water restored quickly.",
+      "Leak detection, water line repair, and re-piping support for older plumbing systems and recurring pressure issues.",
+      "Fixture, drain, sewer, bathroom, kitchen, and gas line plumbing for everyday home projects.",
+    ],
+    faqs: [
+      ["Do you serve Collinsville, OK?", "Yes. Pacific Plumbing serves Collinsville and nearby north Tulsa metro communities for residential plumbing service."],
+      ["What plumbing services are available in Collinsville?", "The Collinsville page links directly to water heaters, re-piping, fixtures, water lines, leak detection, drains and sewer, emergency plumbing, bathroom and kitchen plumbing, and gas lines."],
+      ["How should Collinsville homeowners request service?", `Call ${site.phone} or use the booking form. For active water damage, a sewer backup, or a suspected gas issue, call instead of waiting on a form response.`],
+    ],
+  },
+  {
+    slug: "catoosa",
+    city: "Catoosa",
+    county: "Rogers County",
+    keyword: "plumber Catoosa OK",
+    title: "Plumber in Catoosa, OK | Pacific Plumbing",
+    description:
+      "Pacific Plumbing serves Catoosa, OK with residential plumbing for water heaters, leaks, drains, sewer lines, fixtures, water lines, re-pipes, and gas line needs.",
+    h1: "Catoosa plumbers for fast, practical fixes.",
+    intro:
+      "From homes near Route 66 to neighborhoods across the Catoosa area, Pacific Plumbing gives homeowners a direct path from plumbing problem to clean repair.",
+    image: "assets/area-catoosa.jpg",
+    imageAlt: "The Blue Whale of Catoosa on Route 66",
+    imageCredit: "Carol M. Highsmith, Library of Congress",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Rt_66_Blue_Whale_Highsmith.jpg",
+    license: "Public domain",
+    localDetails: [
+      "Catoosa water heater repair, replacement, and troubleshooting when hot water becomes unreliable.",
+      "Drain cleaning, sewer support, leak detection, and water line repair for sudden problems and recurring issues.",
+      "Fixture installation, bathroom and kitchen plumbing, re-piping, and gas line plumbing for planned updates.",
+    ],
+    faqs: [
+      ["Does Pacific Plumbing work in Catoosa?", "Yes. Pacific Plumbing serves Catoosa homeowners and nearby east Tulsa metro communities."],
+      ["Can you help with Catoosa water heater problems?", "Yes. The site includes a dedicated water heater page for repair, replacement, tank, and tankless water heater service."],
+      ["What is the fastest way to book Catoosa plumbing service?", `Call ${site.phone} for urgent issues or use the online request form for a service window.`],
+    ],
+  },
+  {
+    slug: "verdigris",
+    city: "Verdigris",
+    county: "Rogers County",
+    keyword: "plumber Verdigris OK",
+    title: "Plumber in Verdigris, OK | Pacific Plumbing",
+    description:
+      "Pacific Plumbing serves Verdigris, OK homeowners with leak detection, water line repair, drains, sewer, fixtures, water heaters, gas lines, and re-piping.",
+    h1: "Verdigris plumbing help that keeps things simple.",
+    intro:
+      "When a Verdigris home has low pressure, a leaking fixture, a backed-up drain, or a water heater that quits, Pacific Plumbing helps identify the issue and explain the right repair path.",
+    image: "assets/area-verdigris.jpg",
+    imageAlt: "Verdigris, Oklahoma town hall",
+    imageCredit: "JB Lamb via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Verdigris_Oklahoma_Town_Hall.jpg",
+    license: "CC BY-SA 3.0",
+    localDetails: [
+      "Leak detection and water line repair for Verdigris homeowners dealing with wet spots, pressure drops, or rising water bills.",
+      "Drain, sewer, water heater, and fixture service for problems that need a clear diagnosis before work begins.",
+      "Re-piping, bathroom and kitchen plumbing, and gas line support for remodels and planned improvements.",
+    ],
+    faqs: [
+      ["Is Verdigris in Pacific Plumbing's service area?", "Yes. Verdigris is included in Pacific Plumbing's expanded Tulsa metro service area."],
+      ["What plumbing problems do Verdigris homeowners call about?", "Common calls include leaks, water heater issues, clogged drains, running toilets, fixture replacements, water line problems, and planned re-piping."],
+      ["Can Pacific Plumbing help with urgent Verdigris plumbing issues?", `Yes. For urgent plumbing problems in Verdigris, call ${site.phone} so the team can help you choose the right next step.`],
+    ],
+  },
+  {
+    slug: "sapulpa",
+    city: "Sapulpa",
+    county: "Creek County",
+    keyword: "plumber Sapulpa OK",
+    title: "Plumber in Sapulpa, OK | Pacific Plumbing",
+    description:
+      "Looking for a plumber in Sapulpa, OK? Pacific Plumbing helps with water heaters, drains, sewer, leak detection, fixtures, water lines, re-piping, and gas lines.",
+    h1: "Sapulpa plumbing service for repairs, upgrades, and urgent calls.",
+    intro:
+      "Pacific Plumbing serves Sapulpa homeowners who want the problem explained clearly, the repair handled cleanly, and the next step made obvious.",
+    image: "assets/area-sapulpa.jpg",
+    imageAlt: "Main Street in downtown Sapulpa, Oklahoma",
+    imageCredit: "Pen of bushido via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Sapulpa_Main_Street.JPG",
+    license: "CC BY-SA 3.0",
+    localDetails: [
+      "Sapulpa drain and sewer service for slow drains, backups, recurring clogs, and under-sink leaks.",
+      "Water heater repair, fixture replacement, water line repair, and leak detection for everyday plumbing problems.",
+      "Re-piping, gas line plumbing, and bathroom or kitchen plumbing for bigger home projects.",
+    ],
+    faqs: [
+      ["Does Pacific Plumbing serve Sapulpa?", "Yes. Sapulpa is included in Pacific Plumbing's expanded service area for residential plumbing service."],
+      ["Which Sapulpa plumbing services have dedicated pages?", "Dedicated service pages cover water heaters, re-pipes, fixtures, water lines, leak detection, drains and sewer, emergency plumbing, bathroom and kitchen plumbing, and gas lines."],
+      ["How do I schedule a Sapulpa plumber?", `Call ${site.phone} or request service online. For active leaks or sewer backups, calling is the better first move.`],
+    ],
   },
 ];
 
@@ -424,6 +544,9 @@ function footer(prefix = "") {
           </div>
           <p>Ready for slippery situations. Honest service. Quality work. Tulsa proud.</p>
           <a href="${site.phoneHref}">${site.phone}</a>
+          <div class="social-links" aria-label="Pacific Plumbing social links">
+            ${site.social.map((item) => `<a href="${item.url}" target="_blank" rel="noopener noreferrer">${esc(item.name)}</a>`).join("")}
+          </div>
         </div>
         <div>
           <h3>Services</h3>
@@ -439,6 +562,12 @@ function footer(prefix = "") {
             <li><a href="${prefix}about.html">About</a></li>
             <li><a href="${prefix}reviews.html">Reviews</a></li>
             <li><a href="${prefix}contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Areas</h3>
+          <ul>
+            ${locationPages.map((location) => `<li><a href="${prefix}service-areas/${location.slug}.html">${esc(location.city)}</a></li>`).join("")}
           </ul>
         </div>
       </div>
@@ -463,6 +592,7 @@ function localBusinessSchema() {
     telephone: site.phone,
     logo: absolute("assets/pacific-new-logo.png"),
     image: absolute("assets/pacific-truck-mascot.png"),
+    sameAs: site.social.map((item) => item.url),
     priceRange: "$$",
     slogan: "Ready for slippery situations.",
     areaServed: site.areas.map((area) => ({ "@type": "City", name: area })),
@@ -564,6 +694,48 @@ function serviceCards(prefix = "", limit = services.length) {
     </div>`).join("");
 }
 
+function locationForArea(area) {
+  return locationPages.find((location) => location.city === area);
+}
+
+function areaChips(prefix = "") {
+  return site.areas
+    .map((area) => {
+      const location = locationForArea(area);
+      return location
+        ? `<a href="${prefix}service-areas/${location.slug}.html">${esc(area)}</a>`
+        : `<span>${esc(area)}</span>`;
+    })
+    .join("");
+}
+
+function locationCards(prefix = "") {
+  return locationPages
+    .map((location) => `
+      <a class="area-card" href="${prefix}service-areas/${location.slug}.html">
+        <img src="${prefix}${location.image}" alt="${esc(location.imageAlt)}">
+        <span>
+          <small>${esc(location.keyword)}</small>
+          <strong>${esc(location.city)} Plumbing</strong>
+          <em>${esc(location.description)}</em>
+        </span>
+      </a>`)
+    .join("");
+}
+
+function serviceLinkGrid(prefix = "../", city = site.city) {
+  return services
+    .map((service) => `<a href="${prefix}services/${service.slug}.html">${esc(service.shortName)} <span>${esc(city)}</span></a>`)
+    .join("");
+}
+
+function nearbyLocationLinks(current, prefix = "../") {
+  return locationPages
+    .filter((location) => location.slug !== current.slug)
+    .map((location) => `<a href="${prefix}service-areas/${location.slug}.html">${esc(location.city)} plumbers</a>`)
+    .join("");
+}
+
 function relatedServices(current, prefix = "../") {
   return services
     .filter((service) => service.slug !== current.slug)
@@ -663,7 +835,7 @@ function homepage() {
       </section>
       <section class="section areas-section" id="areas">
         <div><p class="eyebrow">Service area</p><h2>Serving Tulsa and nearby communities.</h2><p>Pacific Plumbing is built for homeowners across the Tulsa metro who want service that feels fast, fair, and easy to understand.</p><a class="text-link" href="service-areas.html">Explore service areas</a></div>
-        <div class="area-list" aria-label="Service area cities">${site.areas.map((area) => `<span>${esc(area)}</span>`).join("")}</div>
+        <div class="area-list" aria-label="Service area cities">${areaChips("")}</div>
       </section>
       ${ctaBand("")}
     </main>
@@ -779,6 +951,122 @@ function servicePage(service) {
 </html>`;
 }
 
+function locationPage(location) {
+  const path = `service-areas/${location.slug}.html`;
+  const schema = [
+    localBusinessSchema(),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Service Areas", path: "service-areas.html" },
+      { name: location.city, path },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${absolute(path)}#webpage`,
+      name: location.title,
+      description: location.description,
+      url: absolute(path),
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: absolute(location.image),
+      },
+      about: {
+        "@type": "Service",
+        name: `Plumbing services in ${location.city}, OK`,
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${absolute(path)}#service`,
+      name: `Plumber in ${location.city}, OK`,
+      serviceType: `Residential plumbing service in ${location.city}, OK`,
+      description: location.description,
+      provider: { "@id": `${site.baseUrl}/#business` },
+      areaServed: { "@type": "City", name: location.city },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `${location.city} plumbing services`,
+        itemListElement: services.map((service) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: `${service.shortName} in ${location.city}, OK`,
+            url: absolute(`services/${service.slug}.html`),
+          },
+        })),
+      },
+      url: absolute(path),
+    },
+    faqSchema(location.faqs),
+  ];
+
+  return `${head({ title: location.title, description: location.description, path, prefix: "../", schema, ogImage: location.image })}
+  <body>
+    ${nav("../")}
+    <main>
+      <section class="page-hero location-hero">
+        <div>
+          <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="../service-areas.html">Service Areas</a><span>/</span><span>${esc(location.city)}</span></nav>
+          <p class="eyebrow">${esc(location.keyword)}</p>
+          <h1>${esc(location.h1)}</h1>
+          <p>${esc(location.intro)}</p>
+          <div class="hero-actions">
+            <a class="button button-primary button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="location_hero">Call ${site.phone}</a>
+            <a class="button button-light button-large" href="../contact.html" data-track="booking_click" data-track-location="location_hero">Book Online</a>
+          </div>
+          <div class="location-meta" aria-label="Location details">
+            <span>${esc(location.county)}</span>
+            <span>Tulsa metro plumbing</span>
+            <span>Residential service</span>
+          </div>
+        </div>
+        <figure class="page-hero-image location-image">
+          <img src="../${location.image}" alt="${esc(location.imageAlt)}">
+          <figcaption>Image: <a href="${location.imageCreditUrl}">${esc(location.imageCredit)}</a> · ${esc(location.license)}</figcaption>
+        </figure>
+      </section>
+      <section class="quick-proof local-proof" aria-label="${esc(location.city)} plumbing highlights">
+        <article><strong>${esc(location.city)} plumbers</strong><span>Local plumbing service pages for homeowners searching near ${esc(location.city)}, OK.</span></article>
+        <article><strong>Service links</strong><span>Direct paths to water heaters, leaks, drains, sewer, re-pipes, fixtures, water lines, and gas lines.</span></article>
+        <article><strong>Clear next steps</strong><span>Call or book online when a plumbing problem needs attention without the guesswork.</span></article>
+      </section>
+      <section class="section detail-section location-detail">
+        <div class="detail-main">
+          <article class="content-panel">
+            <h2>Plumbing services in ${esc(location.city)}, OK.</h2>
+            <p class="panel-copy">If you are searching for a ${esc(location.keyword)}, Pacific Plumbing gives ${esc(location.city)} homeowners an easy path to the right plumbing service page and a fast way to request help.</p>
+            <div class="service-link-grid">${serviceLinkGrid("../", location.city)}</div>
+          </article>
+          <article class="content-panel">
+            <h2>How Pacific helps ${esc(location.city)} homes.</h2>
+            <ul class="check-list">${location.localDetails.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
+          </article>
+          <article class="content-panel">
+            <h2>Common ${esc(location.city)} plumbing searches.</h2>
+            <p class="panel-copy">Homeowners in ${esc(location.city)} often need a plumber for water heater repair, leak detection, drain cleaning, sewer line help, fixture installation, gas line plumbing, re-piping, and water line repair. Pacific Plumbing connects those needs to dedicated service pages with focused answers.</p>
+          </article>
+          <article class="content-panel">
+            <h2>${esc(location.city)} plumbing FAQs</h2>
+            <div class="faq-list">${location.faqs.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div>
+          </article>
+        </div>
+        <aside class="sidebar-card">
+          <p class="eyebrow">Nearby areas</p>
+          <h3>More Tulsa metro service pages</h3>
+          <div class="related-links">${nearbyLocationLinks(location, "../")}</div>
+          <a class="button button-primary" href="../contact.html" data-track="booking_click" data-track-location="location_sidebar">Request Service</a>
+        </aside>
+      </section>
+      ${ctaBand("../")}
+    </main>
+    ${footer("../")}
+    <script src="../script.js?v=${scriptVersion}"></script>
+  </body>
+</html>`;
+}
+
 function supportPage(page) {
   const schema = [
     localBusinessSchema(),
@@ -789,7 +1077,7 @@ function supportPage(page) {
       ? `<div class="contact-hero-image"><img src="assets/banana-contact.png" alt="Pacific Plumbing mascot giving a thumbs up"></div>`
       : "";
   const extra = {
-    areas: `<div class="area-list large">${site.areas.map((area) => `<span>${esc(area)}</span>`).join("")}</div>`,
+    areas: `<div class="service-area-hub"><div class="section-heading"><p class="eyebrow">Local plumbing pages</p><h2>Plumbing service areas across the Tulsa metro.</h2><p>Pacific Plumbing now has dedicated community pages for nearby cities so homeowners can find local plumbing service, core service links, and clear next steps by location.</p></div><div class="area-card-grid">${locationCards("")}</div><div class="area-list large">${areaChips("")}</div></div>`,
     about: `<div class="process-grid"><article><span>01</span><h3>Memorable brand</h3><p>The campaign helps Pacific stand out in a crowded local service market.</p></article><article><span>02</span><h3>Serious service</h3><p>The site balances personality with trust, process, and practical homeowner guidance.</p></article><article><span>03</span><h3>Local growth</h3><p>The SEO structure gives Pacific room to grow into more service and city pages.</p></article></div>`,
     reviews: `<div class="reviews-widget-panel"><script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script><iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/4mPRHVXqYPl9T4aDVlLP?widgetId=69f0df14597a8fdefb7e82b1' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe></div>`,
     contact: `<form class="booking-form support-form" action="thank-you.html" method="post" data-track-form="contact_request"><label>Name<input type="text" name="name" autocomplete="name" placeholder="Your name"></label><label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="${site.phone}"></label><label>Service needed<select name="service">${services.map((service) => `<option>${esc(service.shortName)}</option>`).join("")}</select></label><button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="contact_page">Request Service</button><p class="form-note">Demo form for the website concept. Connect this to the booking system before launch.</p></form>`,
@@ -836,21 +1124,26 @@ function sitemap() {
     "",
     "services/",
     ...services.map((service) => `services/${service.slug}.html`),
+    ...locationPages.map((location) => `service-areas/${location.slug}.html`),
     ...supportPages.filter((page) => !page.noindex).map((page) => page.path),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paths.map((path) => `  <url><loc>${absolute(path)}</loc><changefreq>monthly</changefreq><priority>${path === "" ? "1.0" : path.startsWith("services/") ? "0.9" : "0.7"}</priority></url>`).join("\n")}
+${paths.map((path) => `  <url><loc>${absolute(path)}</loc><changefreq>monthly</changefreq><priority>${path === "" ? "1.0" : path.startsWith("services/") ? "0.9" : path.startsWith("service-areas/") ? "0.85" : "0.7"}</priority></url>`).join("\n")}
 </urlset>
 `;
 }
 
 async function main() {
   await mkdir("services", { recursive: true });
+  await mkdir("service-areas", { recursive: true });
   await writeFile("index.html", homepage());
   await writeFile("services/index.html", servicesIndex());
   for (const service of services) {
     await writeFile(`services/${service.slug}.html`, servicePage(service));
+  }
+  for (const location of locationPages) {
+    await writeFile(`service-areas/${location.slug}.html`, locationPage(location));
   }
   for (const page of supportPages) {
     await writeFile(page.path, supportPage(page));

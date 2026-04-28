@@ -45,6 +45,11 @@ function prepareScrollReveals() {
     ".campaign-copy",
     ".areas-section > *",
     ".area-list span",
+    ".area-list a",
+    ".area-card",
+    ".service-link-grid a",
+    ".location-meta span",
+    ".location-image",
     ".content-panel",
     ".sidebar-card",
     ".booking-form",
@@ -58,7 +63,7 @@ function prepareScrollReveals() {
       element.dataset.reveal = "right";
     } else if (element.matches(".campaign-copy, .review-copy, .split > *:first-child")) {
       element.dataset.reveal = "left";
-    } else if (element.matches(".service-card, .area-list span, .process-grid article")) {
+    } else if (element.matches(".service-card, .area-list span, .area-list a, .area-card, .service-link-grid a, .process-grid article, .location-meta span")) {
       element.dataset.reveal = "scale";
     }
   });
@@ -79,7 +84,7 @@ function prepareScrollReveals() {
 
 function addMagneticHover() {
   if (prefersReducedMotion || window.matchMedia("(pointer: coarse)").matches) return;
-  const magneticTargets = document.querySelectorAll(".button, .service-card, .related-links a");
+  const magneticTargets = document.querySelectorAll(".button, .service-card, .related-links a, .area-card, .area-list a, .service-link-grid a, .social-links a");
 
   magneticTargets.forEach((target) => {
     target.addEventListener("mousemove", (event) => {
@@ -149,7 +154,7 @@ document.querySelectorAll("form[data-track-form]").forEach((form) => {
   });
 });
 
-document.querySelectorAll(".button:not([data-track]), .service-card, .related-links a, .mobile-cta a:not([data-track])").forEach((element) => {
+document.querySelectorAll(".button:not([data-track]), .service-card, .related-links a, .area-card, .area-list a, .service-link-grid a, .social-links a, .mobile-cta a:not([data-track])").forEach((element) => {
   element.addEventListener("click", addRipple);
 });
 

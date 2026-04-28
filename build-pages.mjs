@@ -249,6 +249,8 @@ const services = [
     title: "Bathroom & Kitchen Plumbing in Tulsa | Pacific Plumbing",
     description:
       "Pacific Plumbing helps Tulsa homeowners with bathroom and kitchen plumbing repairs, fixture installs, drains, disposals, sinks, and supply lines.",
+    image: "assets/bathroom-kitchen-service.png",
+    imageAlt: "Pacific Plumbing mascot standing beside kitchen sink plumbing",
     h1: "Bathroom and kitchen plumbing done right.",
     intro:
       "Kitchens and bathrooms carry the busiest plumbing in the home. Pacific Plumbing helps with repairs, replacements, remodel tie-ins, and everyday issues that make these rooms harder to use.",

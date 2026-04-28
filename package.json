@@ -1,0 +1,29 @@
+{
+  "name": "pacific-plumbing",
+  "version": "1.0.0",
+  "description": "Pacific Plumbing - Tulsa Plumbing Services Website",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "build": "node build-pages.mjs",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwhitmarsh/Pacific_plumbing.git"
+  },
+  "keywords": [
+    "plumbing",
+    "tulsa",
+    "speed-insights"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianwhitmarsh/Pacific_plumbing/issues"
+  },
+  "homepage": "https://github.com/ianwhitmarsh/Pacific_plumbing#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}

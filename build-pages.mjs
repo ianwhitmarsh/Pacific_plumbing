@@ -505,6 +505,7 @@ function head({ title, description, path, prefix = "", schema = [], noindex = fa
     <meta property="og:image" content="${absolute("assets/pacific-truck-mascot.png")}">
     <link rel="stylesheet" href="${prefix}styles.css?v=${scriptVersion}">
     ${schema.map(jsonLd).join("\n    ")}
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
   </head>`;
 }
 

@@ -187,6 +187,8 @@ const services = [
     title: "Drain Cleaning & Sewer Services in Tulsa | Pacific Plumbing",
     description:
       "Pacific Plumbing provides drain cleaning, camera inspection planning, sewer line repair support, and clog help for Tulsa homes.",
+    image: "assets/drain-sewer-service.png",
+    imageAlt: "Pacific Plumbing mascot clearing a drain line under a sink",
     h1: "Drain and sewer help when the line will not clear.",
     intro:
       "Slow drains, recurring clogs, and sewer smells can signal more than a simple blockage. Pacific Plumbing helps identify whether you need clearing, inspection, repair, or a bigger sewer conversation.",

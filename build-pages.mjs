@@ -156,6 +156,8 @@ const services = [
     title: "Leak Detection & Slab Leak Repair in Tulsa | Pacific Plumbing",
     description:
       "Pacific Plumbing helps Tulsa homeowners find hidden leaks, slab leaks, and water damage risks before they become bigger plumbing problems.",
+    image: "assets/leak-detection-service.png",
+    imageAlt: "Pacific Plumbing mascot using a flashlight to find an under-sink leak",
     h1: "Leak detection for hidden plumbing problems.",
     intro:
       "Hidden leaks are stressful because the damage can spread before the source is obvious. Pacific Plumbing helps Tulsa homeowners narrow down leak sources, protect the home, and choose the right repair.",

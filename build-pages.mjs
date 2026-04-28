@@ -63,6 +63,8 @@ const services = [
     title: "Re-Piping Services in Tulsa | Pacific Plumbing",
     description:
       "Pacific Plumbing provides whole-home and partial re-piping services in Tulsa with careful planning, clear communication, and quality work.",
+    image: "assets/re-piping-service.png",
+    imageAlt: "Pacific Plumbing mascot tightening copper re-piping at a home",
     h1: "Re-piping services planned around your home.",
     intro:
       "Old or failing pipes can create low pressure, discolored water, recurring leaks, and expensive repairs that never quite end. Pacific Plumbing plans partial and whole-home re-pipes with clean communication and careful sequencing.",

@@ -3,8 +3,8 @@ import { mkdir, writeFile } from "node:fs/promises";
 const site = {
   name: "Pacific Plumbing",
   baseUrl: "https://www.pacificplumbingtulsa.com",
-  phone: "918-703-9488",
-  phoneHref: "tel:9187039488",
+  phone: "(918) 771-9078",
+  phoneHref: "tel:9187719078",
   city: "Tulsa",
   image: "/assets/pacific-truck-mascot.png",
   description:
@@ -354,7 +354,7 @@ const supportPages = [
     path: "thank-you.html",
     title: "Thank You | Pacific Plumbing",
     description:
-      "Thank you for contacting Pacific Plumbing. For urgent plumbing issues in Tulsa, call 918-703-9488.",
+      "Thank you for contacting Pacific Plumbing. For urgent plumbing issues in Tulsa, call (918) 771-9078.",
     h1: "Thanks. We received your request.",
     eyebrow: "Thank you",
     copy:

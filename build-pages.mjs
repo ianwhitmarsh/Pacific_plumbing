@@ -94,6 +94,8 @@ const services = [
     title: "Fixture Repair & Installation in Tulsa | Pacific Plumbing",
     description:
       "Pacific Plumbing repairs and installs faucets, toilets, sinks, showers, disposals, and other plumbing fixtures for Tulsa homes.",
+    image: "assets/fixtures-service.png",
+    imageAlt: "Pacific Plumbing mascot installing a bathroom faucet fixture",
     h1: "Fixture repair and installation that feels finished.",
     intro:
       "Small fixture problems can waste water, damage cabinets, and make a room feel unfinished. Pacific Plumbing repairs and installs faucets, toilets, sinks, showers, disposals, and other fixtures with clean work and practical recommendations.",

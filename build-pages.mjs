@@ -32,6 +32,8 @@ const services = [
     title: "Water Heater Repair & Installation in Tulsa | Pacific Plumbing",
     description:
       "Need water heater repair or installation in Tulsa? Pacific Plumbing handles tank and tankless water heaters with clear options and clean work.",
+    image: "assets/water-heater-service.png",
+    imageAlt: "Pacific Plumbing mascot servicing a branded water heater",
     h1: "Water heater repair and installation in Tulsa.",
     intro:
       "No hot water can derail the whole house. Pacific Plumbing helps Tulsa homeowners diagnose water heater problems, compare repair and replacement options, and get hot water moving again without muddy explanations.",
@@ -487,7 +489,7 @@ function faqSchema(faqs) {
   };
 }
 
-function head({ title, description, path, prefix = "", schema = [], noindex = false }) {
+function head({ title, description, path, prefix = "", schema = [], noindex = false, ogImage = "assets/pacific-truck-mascot.png" }) {
   const canonical = absolute(path);
   return `<!doctype html>
 <html lang="en">
@@ -502,7 +504,7 @@ function head({ title, description, path, prefix = "", schema = [], noindex = fa
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${canonical}">
-    <meta property="og:image" content="${absolute("assets/pacific-truck-mascot.png")}">
+    <meta property="og:image" content="${absolute(ogImage)}">
     <link rel="stylesheet" href="${prefix}styles.css?v=${scriptVersion}">
     ${schema.map(jsonLd).join("\n    ")}
   </head>`;
@@ -692,6 +694,8 @@ function servicesIndex() {
 
 function servicePage(service) {
   const path = `services/${service.slug}.html`;
+  const heroImage = service.image ?? "assets/pacific-truck-mascot.png";
+  const heroImageAlt = service.imageAlt ?? "Pacific Plumbing service truck and mascot";
   const schema = [
     localBusinessSchema(),
     breadcrumbSchema([
@@ -712,7 +716,7 @@ function servicePage(service) {
     },
     faqSchema(service.faqs),
   ];
-  return `${head({ title: service.title, description: service.description, path, prefix: "../", schema })}
+  return `${head({ title: service.title, description: service.description, path, prefix: "../", schema, ogImage: heroImage })}
   <body>
     ${nav("../")}
     <main>
@@ -727,7 +731,7 @@ function servicePage(service) {
             <a class="button button-light button-large" href="../contact.html" data-track="booking_click" data-track-location="service_hero">Book Online</a>
           </div>
         </div>
-        <div class="page-hero-image"><img src="../assets/pacific-truck-mascot.png" alt="Pacific Plumbing service truck and mascot"></div>
+        <div class="page-hero-image"><img src="../${heroImage}" alt="${esc(heroImageAlt)}"></div>
       </section>
       <section class="section detail-section">
         <div class="detail-main">

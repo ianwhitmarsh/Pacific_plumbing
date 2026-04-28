@@ -125,6 +125,8 @@ const services = [
     title: "Water Line Repair in Tulsa | Pacific Plumbing",
     description:
       "Pacific Plumbing diagnoses and repairs water line issues in Tulsa, including service line leaks, yard leaks, and pressure problems.",
+    image: "assets/water-lines-service.png",
+    imageAlt: "Pacific Plumbing mascot repairing an underground water line",
     h1: "Water line repair for pressure, leaks, and peace of mind.",
     intro:
       "A water line issue can show up as a soggy yard, rising water bill, weak pressure, or water where it does not belong. Pacific Plumbing helps locate the problem and explain the best repair path.",

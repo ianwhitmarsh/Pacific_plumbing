@@ -30,7 +30,7 @@ const site = {
   ],
 };
 
-const scriptVersion = "site-motion-11";
+const scriptVersion = "site-motion-12";
 
 const serviceAreaZipCodes = [
   "74103",
@@ -765,6 +765,10 @@ function relativePrefix(path) {
   return path.includes("/") ? "../" : "";
 }
 
+function bookingLinkAttrs(prefix = "", location = "booking") {
+  return `href="${prefix}contact.html" data-booking-modal-open data-track="booking_click" data-track-location="${esc(location)}" aria-haspopup="dialog" aria-controls="booking-modal"`;
+}
+
 function nav(prefix = "") {
   return `
     <header class="site-header" data-header>
@@ -781,7 +785,7 @@ function nav(prefix = "") {
       </nav>
       <div class="header-actions">
         <a class="phone-link" href="${site.phoneHref}" data-track="phone_click" data-track-location="header">${site.phone}</a>
-        <a class="button button-primary" href="${prefix}contact.html" data-track="booking_click" data-track-location="header">Book Online</a>
+        <a class="button button-primary" ${bookingLinkAttrs(prefix, "header")}>Book Online</a>
         <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span><span class="sr-only">Open menu</span>
         </button>
@@ -792,7 +796,7 @@ function nav(prefix = "") {
       <a href="${prefix}about.html">Why Pacific</a>
       <a href="${prefix}reviews.html">Reviews</a>
       <a href="${prefix}service-areas.html">Service Area</a>
-      <a href="${prefix}contact.html">Book Online</a>
+      <a ${bookingLinkAttrs(prefix, "mobile_menu")}>Book Online</a>
     </nav>`;
 }
 
@@ -836,9 +840,10 @@ function footer(prefix = "") {
         </div>
       </div>
     </footer>
+    ${bookingModal(prefix)}
     <div class="mobile-cta" aria-label="Mobile quick actions">
       <a href="${site.phoneHref}" data-track="phone_click" data-track-location="mobile_sticky">Call Now</a>
-      <a href="${prefix}contact.html" data-track="booking_click" data-track-location="mobile_sticky">Book Online</a>
+      <a ${bookingLinkAttrs(prefix, "mobile_sticky")}>Book Online</a>
     </div>`;
 }
 
@@ -955,6 +960,20 @@ function bookingForm({ prefix = "", formName = "service_request", trackLocation 
       </form>`;
 }
 
+function bookingModal(prefix = "") {
+  return `<div class="booking-modal" id="booking-modal" data-booking-modal hidden role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+      <div class="booking-modal-card" role="document">
+        <button class="booking-modal-close" type="button" data-booking-modal-close aria-label="Close booking form">&times;</button>
+        <div class="booking-modal-intro">
+          <p class="eyebrow">Book online</p>
+          <h2 id="booking-modal-title">Start with your ZIP code.</h2>
+          <p>We will confirm Pacific Plumbing serves your area, then collect the basics for the service you need.</p>
+        </div>
+        ${bookingForm({ prefix, formName: "modal_booking_request", trackLocation: "booking_modal", compact: true })}
+      </div>
+    </div>`;
+}
+
 function ctaBand(prefix = "") {
   return `
     <section class="book-section" id="book">
@@ -963,7 +982,15 @@ function ctaBand(prefix = "") {
         <h2>Get out of a slippery situation today.</h2>
         <p>Call now or request a service window. Pacific Plumbing will help you understand the problem and choose the right fix.</p>
       </div>
-      ${bookingForm({ prefix, formName: "service_request", trackLocation: "cta_band" })}
+      <div class="booking-prompt-card">
+        <p class="eyebrow">Online booking</p>
+        <h3>Check availability first.</h3>
+        <p>Pop open the booking form, enter your ZIP code, and we will show the next step if you are in Pacific Plumbing's service area.</p>
+        <div class="form-actions">
+          <a class="button button-primary button-large" ${bookingLinkAttrs(prefix, "cta_band")}>Book Online</a>
+          <a class="button button-light button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="cta_band">Call ${site.phone}</a>
+        </div>
+      </div>
     </section>`;
 }
 
@@ -1057,7 +1084,7 @@ function homepage() {
             <p class="hero-copy">Water heaters, re-pipes, fixtures, water lines, and emergency plumbing handled by a local team that keeps things clear, clean, and calm.</p>
             <div class="hero-actions">
               <a class="button button-primary button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="home_hero">Call ${site.phone}</a>
-              <a class="button button-light button-large" href="contact.html" data-track="booking_click" data-track-location="home_hero">Book Online</a>
+              <a class="button button-light button-large" ${bookingLinkAttrs("", "home_hero")}>Book Online</a>
             </div>
             <div class="trust-row" aria-label="Pacific Plumbing promises">
               <span>Honest service</span><span>Quality work</span><span>Tulsa proud</span>
@@ -1116,7 +1143,7 @@ function homepage() {
       </section>
       <section class="section campaign-section">
         <div class="campaign-image"><img src="assets/pacific-billboard.png" alt="Pacific Plumbing billboard with Ready for Slippery Situations campaign"></div>
-        <div class="campaign-copy"><p class="eyebrow">A brand Tulsa will remember</p><h2>Memorable on the road. Reliable in your home.</h2><p>The campaign gets attention. The website turns that attention into confidence by pairing the playful billboard with grounded proof: service clarity, local pride, and practical plumbing expertise.</p><a class="text-link" href="contact.html">Schedule service</a></div>
+        <div class="campaign-copy"><p class="eyebrow">A brand Tulsa will remember</p><h2>Memorable on the road. Reliable in your home.</h2><p>The campaign gets attention. The website turns that attention into confidence by pairing the playful billboard with grounded proof: service clarity, local pride, and practical plumbing expertise.</p><a class="text-link" ${bookingLinkAttrs("", "campaign_section")}>Schedule service</a></div>
       </section>
       <section class="section areas-section" id="areas">
         <div><p class="eyebrow">Service area</p><h2>Serving Tulsa and nearby communities.</h2><p>Pacific Plumbing is built for homeowners across the Tulsa metro who want service that feels fast, fair, and easy to understand.</p><a class="text-link" href="service-areas.html">Explore service areas</a></div>
@@ -1201,7 +1228,7 @@ function servicePage(service) {
           <p>${esc(service.intro)}</p>
           <div class="hero-actions">
             <a class="button button-primary button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="service_hero">Call ${site.phone}</a>
-            <a class="button button-light button-large" href="../contact.html" data-track="booking_click" data-track-location="service_hero">Book Online</a>
+            <a class="button button-light button-large" ${bookingLinkAttrs("../", "service_hero")}>Book Online</a>
           </div>
         </div>
         <div class="page-hero-image"><img src="../${heroImage}" alt="${esc(heroImageAlt)}"></div>
@@ -1225,7 +1252,7 @@ function servicePage(service) {
           <p class="eyebrow">Related services</p>
           <h3>Keep exploring</h3>
           <div class="related-links">${relatedServices(service, "../")}</div>
-          <a class="button button-primary" href="../contact.html" data-track="booking_click" data-track-location="service_sidebar">Request Service</a>
+          <a class="button button-primary" ${bookingLinkAttrs("../", "service_sidebar")}>Request Service</a>
         </aside>
       </section>
       ${ctaBand("../")}
@@ -1299,7 +1326,7 @@ function locationPage(location) {
           <p>${esc(location.intro)}</p>
           <div class="hero-actions">
             <a class="button button-primary button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="location_hero">Call ${site.phone}</a>
-            <a class="button button-light button-large" href="../contact.html" data-track="booking_click" data-track-location="location_hero">Book Online</a>
+            <a class="button button-light button-large" ${bookingLinkAttrs("../", "location_hero")}>Book Online</a>
           </div>
           <div class="location-meta" aria-label="Location details">
             <span>${esc(location.county)}</span>
@@ -1341,7 +1368,7 @@ function locationPage(location) {
           <p class="eyebrow">Nearby areas</p>
           <h3>More Tulsa metro service pages</h3>
           <div class="related-links">${nearbyLocationLinks(location, "../")}</div>
-          <a class="button button-primary" href="../contact.html" data-track="booking_click" data-track-location="location_sidebar">Request Service</a>
+          <a class="button button-primary" ${bookingLinkAttrs("../", "location_sidebar")}>Request Service</a>
         </aside>
       </section>
       ${ctaBand("../")}
@@ -1365,7 +1392,7 @@ function supportPage(page) {
     areas: `<div class="service-area-hub"><div class="section-heading"><p class="eyebrow">Local plumbing pages</p><h2>Plumbing service areas across the Tulsa metro.</h2><p>Pacific Plumbing now has dedicated community pages for nearby cities so homeowners can find local plumbing service, core service links, and clear next steps by location.</p></div><div class="area-card-grid">${locationCards("")}</div><div class="area-list large">${areaChips("")}</div></div>`,
     about: `<div class="process-grid"><article><span>01</span><h3>Memorable brand</h3><p>The campaign helps Pacific stand out in a crowded local service market.</p></article><article><span>02</span><h3>Serious service</h3><p>The site balances personality with trust, process, and practical homeowner guidance.</p></article><article><span>03</span><h3>Local growth</h3><p>The SEO structure gives Pacific room to grow into more service and city pages.</p></article></div>`,
     reviews: `<div class="reviews-widget-panel"><script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script><iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/4mPRHVXqYPl9T4aDVlLP?widgetId=69f0df14597a8fdefb7e82b1' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe></div>`,
-    contact: bookingForm({ formName: "contact_request", trackLocation: "contact_page", compact: true }),
+    contact: `<div class="content-panel contact-booking-panel"><p class="eyebrow">Online booking</p><h2>Start with your service ZIP code.</h2><p>Click below to open the booking window. Pacific Plumbing will check whether the ZIP is in the online service area before asking for your contact details.</p><div class="hero-actions"><a class="button button-primary button-large" ${bookingLinkAttrs("", "contact_page")}>Book Online</a><a class="button button-light button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="contact_page">Call ${site.phone}</a></div></div>`,
     thankyou: `<div class="content-panel thank-you-panel"><h2>Next step</h2><p>For urgent leaks, sewer backups, or active water damage, call now instead of waiting on a form response.</p><div class="hero-actions"><a class="button button-primary button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="thank_you">Call ${site.phone}</a><a class="button button-light button-large" href="services/">View Services</a></div></div>`,
   };
   return `${head({ title: page.title, description: page.description, path: page.path, schema, noindex: page.noindex })}
@@ -1395,7 +1422,7 @@ function notFoundPage() {
     ${nav("")}
     <main>
       <section class="page-hero">
-        <div><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>404</span></nav><p class="eyebrow">Page not found</p><h1>This page slipped away.</h1><p>The plumbing help is still here. Head back to the service pages or contact Pacific Plumbing for the fastest next step.</p><div class="hero-actions"><a class="button button-primary button-large" href="services/">View Services</a><a class="button button-light button-large" href="contact.html">Book Online</a></div></div>
+        <div><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>404</span></nav><p class="eyebrow">Page not found</p><h1>This page slipped away.</h1><p>The plumbing help is still here. Head back to the service pages or contact Pacific Plumbing for the fastest next step.</p><div class="hero-actions"><a class="button button-primary button-large" href="services/">View Services</a><a class="button button-light button-large" ${bookingLinkAttrs("", "404_page")}>Book Online</a></div></div>
       </section>
     </main>
     ${footer("")}

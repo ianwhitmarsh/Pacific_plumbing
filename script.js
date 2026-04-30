@@ -1,6 +1,7 @@
 const menuButton = document.querySelector("[data-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let lastBookingOpener = null;
 
 function trackConversion(eventName, details = {}) {
   window.dataLayer = window.dataLayer || [];
@@ -124,6 +125,22 @@ function showBookingStep(form, stepName) {
   });
 }
 
+function resetBookingForm(form) {
+  if (!form) return;
+  form.reset();
+  form.dataset.zipQualified = "false";
+  const zipMessage = form.querySelector("[data-zip-message]");
+  const zipSuccess = form.querySelector("[data-zip-success]");
+  if (zipMessage) {
+    zipMessage.textContent = "Enter your ZIP code to confirm service availability.";
+    zipMessage.className = "form-message";
+  }
+  if (zipSuccess) {
+    zipSuccess.textContent = "";
+  }
+  showBookingStep(form, "zip");
+}
+
 function runBookingZipCheck(form) {
   const zipInput = form.querySelector("[data-zip-input]");
   const zipMessage = form.querySelector("[data-zip-message]");
@@ -201,6 +218,61 @@ function setupBookingFlows() {
   });
 }
 
+function setupBookingModal() {
+  const modal = document.querySelector("[data-booking-modal]");
+  if (!modal) return;
+
+  const modalForm = modal.querySelector(".booking-flow");
+  const closeButtons = modal.querySelectorAll("[data-booking-modal-close]");
+
+  function openBookingModal(opener) {
+    lastBookingOpener = opener || document.activeElement;
+    resetBookingForm(modalForm);
+    modal.hidden = false;
+    modal.classList.add("is-open");
+    document.body.classList.add("modal-open");
+    opener?.setAttribute("aria-expanded", "true");
+    mobileMenu?.classList.remove("is-open");
+    menuButton?.setAttribute("aria-expanded", "false");
+    window.requestAnimationFrame(() => {
+      modal.querySelector("[data-zip-input]")?.focus();
+    });
+  }
+
+  function closeBookingModal() {
+    modal.classList.remove("is-open");
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+    lastBookingOpener?.setAttribute("aria-expanded", "false");
+    lastBookingOpener?.focus?.();
+    lastBookingOpener = null;
+  }
+
+  document.querySelectorAll("[data-booking-modal-open]").forEach((opener) => {
+    opener.setAttribute("aria-expanded", "false");
+    opener.addEventListener("click", (event) => {
+      event.preventDefault();
+      openBookingModal(opener);
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", closeBookingModal);
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeBookingModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closeBookingModal();
+    }
+  });
+}
+
 if (menuButton && mobileMenu) {
   menuButton.addEventListener("click", () => {
     const isOpen = mobileMenu.classList.toggle("is-open");
@@ -264,3 +336,4 @@ prepareScrollReveals();
 addMagneticHover();
 addServicePeekers();
 setupBookingFlows();
+setupBookingModal();

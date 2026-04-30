@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.pacificplumbingtulsa.com/services/bathroom-kitchen.html">
     <meta property="og:image" content="https://www.pacificplumbingtulsa.com/assets/bathroom-kitchen-service.png">
-    <link rel="stylesheet" href="../styles.css?v=site-motion-11">
+    <link rel="stylesheet" href="../styles.css?v=site-motion-12">
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "PlumbingContractor",
@@ -287,7 +287,7 @@
       </nav>
       <div class="header-actions">
         <a class="phone-link" href="tel:9187719078" data-track="phone_click" data-track-location="header">(918) 771-9078</a>
-        <a class="button button-primary" href="../contact.html" data-track="booking_click" data-track-location="header">Book Online</a>
+        <a class="button button-primary" href="../contact.html" data-booking-modal-open data-track="booking_click" data-track-location="header" aria-haspopup="dialog" aria-controls="booking-modal">Book Online</a>
         <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span><span class="sr-only">Open menu</span>
         </button>
@@ -298,7 +298,7 @@
       <a href="../about.html">Why Pacific</a>
       <a href="../reviews.html">Reviews</a>
       <a href="../service-areas.html">Service Area</a>
-      <a href="../contact.html">Book Online</a>
+      <a href="../contact.html" data-booking-modal-open data-track="booking_click" data-track-location="mobile_menu" aria-haspopup="dialog" aria-controls="booking-modal">Book Online</a>
     </nav>
     <main>
       <section class="page-hero service-page-hero">
@@ -309,7 +309,7 @@
           <p>Kitchens and bathrooms carry the busiest plumbing in the home. Pacific Plumbing helps with repairs, replacements, remodel tie-ins, and everyday issues that make these rooms harder to use.</p>
           <div class="hero-actions">
             <a class="button button-primary button-large" href="tel:9187719078" data-track="phone_click" data-track-location="service_hero">Call (918) 771-9078</a>
-            <a class="button button-light button-large" href="../contact.html" data-track="booking_click" data-track-location="service_hero">Book Online</a>
+            <a class="button button-light button-large" href="../contact.html" data-booking-modal-open data-track="booking_click" data-track-location="service_hero" aria-haspopup="dialog" aria-controls="booking-modal">Book Online</a>
           </div>
         </div>
         <div class="page-hero-image"><img src="../assets/bathroom-kitchen-service.png" alt="Pacific Plumbing mascot standing beside kitchen sink plumbing"></div>
@@ -333,7 +333,7 @@
           <p class="eyebrow">Related services</p>
           <h3>Keep exploring</h3>
           <div class="related-links"><a href="../services/water-heaters.html">Water Heaters</a><a href="../services/re-piping.html">Re-Pipes</a><a href="../services/fixtures.html">Fixtures</a></div>
-          <a class="button button-primary" href="../contact.html" data-track="booking_click" data-track-location="service_sidebar">Request Service</a>
+          <a class="button button-primary" href="../contact.html" data-booking-modal-open data-track="booking_click" data-track-location="service_sidebar" aria-haspopup="dialog" aria-controls="booking-modal">Request Service</a>
         </aside>
       </section>
       
@@ -343,30 +343,15 @@
         <h2>Get out of a slippery situation today.</h2>
         <p>Call now or request a service window. Pacific Plumbing will help you understand the problem and choose the right fix.</p>
       </div>
-      <form class="booking-form booking-flow" action="../thank-you.html" method="post" data-track-form="service_request" data-service-zips="74103,74104,74105,74106,74107,74108,74110,74112,74114,74115,74116,74117,74119,74120,74126,74127,74128,74129,74130,74131,74132,74133,74134,74135,74136,74137,74145,74146,74147,74008,74011,74012,74013,74014,74015,74017,74018,74019,74021,74033,74037,74055,74063,74066,74067" novalidate>
-        <div class="form-step form-step-active" data-form-step="zip">
-          <div class="form-step-header"><span>Step 1</span><strong>Check your ZIP code</strong></div>
-          <label>ZIP code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="Enter ZIP code" maxlength="5" data-zip-input required></label>
-          <button class="button button-primary button-large" type="button" data-zip-check>Continue</button>
-          <p class="form-message" data-zip-message aria-live="polite">Enter your ZIP code to confirm service availability.</p>
+      <div class="booking-prompt-card">
+        <p class="eyebrow">Online booking</p>
+        <h3>Check availability first.</h3>
+        <p>Pop open the booking form, enter your ZIP code, and we will show the next step if you are in Pacific Plumbing's service area.</p>
+        <div class="form-actions">
+          <a class="button button-primary button-large" href="../contact.html" data-booking-modal-open data-track="booking_click" data-track-location="cta_band" aria-haspopup="dialog" aria-controls="booking-modal">Book Online</a>
+          <a class="button button-light button-large" href="tel:9187719078" data-track="phone_click" data-track-location="cta_band">Call (918) 771-9078</a>
         </div>
-        <div class="form-step" data-form-step="details" hidden>
-          <div class="form-step-header"><span>Step 2</span><strong>Tell us how to reach you</strong></div>
-          <p class="form-message form-message-success" data-zip-success aria-live="polite"></p>
-          <div class="form-grid">
-            <label>First name<input type="text" name="first_name" autocomplete="given-name" placeholder="First name" required></label>
-            <label>Last name<input type="text" name="last_name" autocomplete="family-name" placeholder="Last name" required></label>
-          </div>
-          <label>Email<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
-          <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="(918) 771-9078" required></label>
-          <label>Service needed<select name="service" required><option value="" selected disabled>What do you need help with?</option><option>Water Heaters</option><option>Re-Pipes</option><option>Fixtures</option><option>Water Lines</option><option>Leak Detection</option><option>Drains &amp; Sewer</option><option>Emergency Plumbing</option><option>Bathroom &amp; Kitchen</option><option>Gas Lines</option></select></label>
-          <div class="form-actions">
-            <button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="cta_band">Request Service</button>
-            <button class="button button-light" type="button" data-zip-edit>Change ZIP</button>
-          </div>
-          <p class="form-note">For active leaks, sewer backups, or suspected gas issues, call instead of waiting on a form response.</p>
-        </div>
-      </form>
+      </div>
     </section>
     </main>
     
@@ -408,10 +393,44 @@
         </div>
       </div>
     </footer>
+    <div class="booking-modal" id="booking-modal" data-booking-modal hidden role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+      <div class="booking-modal-card" role="document">
+        <button class="booking-modal-close" type="button" data-booking-modal-close aria-label="Close booking form">&times;</button>
+        <div class="booking-modal-intro">
+          <p class="eyebrow">Book online</p>
+          <h2 id="booking-modal-title">Start with your ZIP code.</h2>
+          <p>We will confirm Pacific Plumbing serves your area, then collect the basics for the service you need.</p>
+        </div>
+        <form class="booking-form booking-flow support-form" action="../thank-you.html" method="post" data-track-form="modal_booking_request" data-service-zips="74103,74104,74105,74106,74107,74108,74110,74112,74114,74115,74116,74117,74119,74120,74126,74127,74128,74129,74130,74131,74132,74133,74134,74135,74136,74137,74145,74146,74147,74008,74011,74012,74013,74014,74015,74017,74018,74019,74021,74033,74037,74055,74063,74066,74067" novalidate>
+        <div class="form-step form-step-active" data-form-step="zip">
+          <div class="form-step-header"><span>Step 1</span><strong>Check your ZIP code</strong></div>
+          <label>ZIP code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="Enter ZIP code" maxlength="5" data-zip-input required></label>
+          <button class="button button-primary button-large" type="button" data-zip-check>Continue</button>
+          <p class="form-message" data-zip-message aria-live="polite">Enter your ZIP code to confirm service availability.</p>
+        </div>
+        <div class="form-step" data-form-step="details" hidden>
+          <div class="form-step-header"><span>Step 2</span><strong>Tell us how to reach you</strong></div>
+          <p class="form-message form-message-success" data-zip-success aria-live="polite"></p>
+          <div class="form-grid">
+            <label>First name<input type="text" name="first_name" autocomplete="given-name" placeholder="First name" required></label>
+            <label>Last name<input type="text" name="last_name" autocomplete="family-name" placeholder="Last name" required></label>
+          </div>
+          <label>Email<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="(918) 771-9078" required></label>
+          <label>Service needed<select name="service" required><option value="" selected disabled>What do you need help with?</option><option>Water Heaters</option><option>Re-Pipes</option><option>Fixtures</option><option>Water Lines</option><option>Leak Detection</option><option>Drains &amp; Sewer</option><option>Emergency Plumbing</option><option>Bathroom &amp; Kitchen</option><option>Gas Lines</option></select></label>
+          <div class="form-actions">
+            <button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="booking_modal">Request Service</button>
+            <button class="button button-light" type="button" data-zip-edit>Change ZIP</button>
+          </div>
+          <p class="form-note">For active leaks, sewer backups, or suspected gas issues, call instead of waiting on a form response.</p>
+        </div>
+      </form>
+      </div>
+    </div>
     <div class="mobile-cta" aria-label="Mobile quick actions">
       <a href="tel:9187719078" data-track="phone_click" data-track-location="mobile_sticky">Call Now</a>
-      <a href="../contact.html" data-track="booking_click" data-track-location="mobile_sticky">Book Online</a>
+      <a href="../contact.html" data-booking-modal-open data-track="booking_click" data-track-location="mobile_sticky" aria-haspopup="dialog" aria-controls="booking-modal">Book Online</a>
     </div>
-    <script src="../script.js?v=site-motion-11"></script>
+    <script src="../script.js?v=site-motion-12"></script>
   </body>
 </html>

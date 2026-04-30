@@ -30,7 +30,55 @@ const site = {
   ],
 };
 
-const scriptVersion = "site-motion-9";
+const scriptVersion = "site-motion-11";
+
+const serviceAreaZipCodes = [
+  "74103",
+  "74104",
+  "74105",
+  "74106",
+  "74107",
+  "74108",
+  "74110",
+  "74112",
+  "74114",
+  "74115",
+  "74116",
+  "74117",
+  "74119",
+  "74120",
+  "74126",
+  "74127",
+  "74128",
+  "74129",
+  "74130",
+  "74131",
+  "74132",
+  "74133",
+  "74134",
+  "74135",
+  "74136",
+  "74137",
+  "74145",
+  "74146",
+  "74147",
+  "74008",
+  "74011",
+  "74012",
+  "74013",
+  "74014",
+  "74015",
+  "74017",
+  "74018",
+  "74019",
+  "74021",
+  "74033",
+  "74037",
+  "74055",
+  "74063",
+  "74066",
+  "74067",
+];
 
 const services = [
   {
@@ -876,6 +924,37 @@ function serviceIcon() {
   return `<span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2s7 7 7 13a7 7 0 0 1-14 0C5 9 12 2 12 2Zm-2 13a2 2 0 0 0 4 0h3a5 5 0 0 1-10 0h3Z"></path></svg></span>`;
 }
 
+function serviceOptions() {
+  return `<option value="" selected disabled>What do you need help with?</option>${services.map((service) => `<option>${esc(service.shortName)}</option>`).join("")}`;
+}
+
+function bookingForm({ prefix = "", formName = "service_request", trackLocation = "cta_band", compact = false } = {}) {
+  return `<form class="booking-form booking-flow${compact ? " support-form" : ""}" action="${prefix}thank-you.html" method="post" data-track-form="${formName}" data-service-zips="${serviceAreaZipCodes.join(",")}" novalidate>
+        <div class="form-step form-step-active" data-form-step="zip">
+          <div class="form-step-header"><span>Step 1</span><strong>Check your ZIP code</strong></div>
+          <label>ZIP code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="Enter ZIP code" maxlength="5" data-zip-input required></label>
+          <button class="button button-primary button-large" type="button" data-zip-check>Continue</button>
+          <p class="form-message" data-zip-message aria-live="polite">Enter your ZIP code to confirm service availability.</p>
+        </div>
+        <div class="form-step" data-form-step="details" hidden>
+          <div class="form-step-header"><span>Step 2</span><strong>Tell us how to reach you</strong></div>
+          <p class="form-message form-message-success" data-zip-success aria-live="polite"></p>
+          <div class="form-grid">
+            <label>First name<input type="text" name="first_name" autocomplete="given-name" placeholder="First name" required></label>
+            <label>Last name<input type="text" name="last_name" autocomplete="family-name" placeholder="Last name" required></label>
+          </div>
+          <label>Email<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="${site.phone}" required></label>
+          <label>Service needed<select name="service" required>${serviceOptions()}</select></label>
+          <div class="form-actions">
+            <button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="${trackLocation}">Request Service</button>
+            <button class="button button-light" type="button" data-zip-edit>Change ZIP</button>
+          </div>
+          <p class="form-note">For active leaks, sewer backups, or suspected gas issues, call instead of waiting on a form response.</p>
+        </div>
+      </form>`;
+}
+
 function ctaBand(prefix = "") {
   return `
     <section class="book-section" id="book">
@@ -884,17 +963,7 @@ function ctaBand(prefix = "") {
         <h2>Get out of a slippery situation today.</h2>
         <p>Call now or request a service window. Pacific Plumbing will help you understand the problem and choose the right fix.</p>
       </div>
-      <form class="booking-form" action="${prefix}thank-you.html" method="post" data-track-form="service_request">
-        <label>Name<input type="text" name="name" autocomplete="name" placeholder="Your name"></label>
-        <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="${site.phone}"></label>
-        <label>What do you need help with?
-          <select name="service">
-            ${services.map((service) => `<option>${esc(service.shortName)}</option>`).join("")}
-          </select>
-        </label>
-        <button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="cta_band">Request Service</button>
-        <p class="form-note">Demo form for the website concept. Connect this to the booking system before launch.</p>
-      </form>
+      ${bookingForm({ prefix, formName: "service_request", trackLocation: "cta_band" })}
     </section>`;
 }
 
@@ -1296,7 +1365,7 @@ function supportPage(page) {
     areas: `<div class="service-area-hub"><div class="section-heading"><p class="eyebrow">Local plumbing pages</p><h2>Plumbing service areas across the Tulsa metro.</h2><p>Pacific Plumbing now has dedicated community pages for nearby cities so homeowners can find local plumbing service, core service links, and clear next steps by location.</p></div><div class="area-card-grid">${locationCards("")}</div><div class="area-list large">${areaChips("")}</div></div>`,
     about: `<div class="process-grid"><article><span>01</span><h3>Memorable brand</h3><p>The campaign helps Pacific stand out in a crowded local service market.</p></article><article><span>02</span><h3>Serious service</h3><p>The site balances personality with trust, process, and practical homeowner guidance.</p></article><article><span>03</span><h3>Local growth</h3><p>The SEO structure gives Pacific room to grow into more service and city pages.</p></article></div>`,
     reviews: `<div class="reviews-widget-panel"><script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script><iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/4mPRHVXqYPl9T4aDVlLP?widgetId=69f0df14597a8fdefb7e82b1' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe></div>`,
-    contact: `<form class="booking-form support-form" action="thank-you.html" method="post" data-track-form="contact_request"><label>Name<input type="text" name="name" autocomplete="name" placeholder="Your name"></label><label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="${site.phone}"></label><label>Service needed<select name="service">${services.map((service) => `<option>${esc(service.shortName)}</option>`).join("")}</select></label><button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="contact_page">Request Service</button><p class="form-note">Demo form for the website concept. Connect this to the booking system before launch.</p></form>`,
+    contact: bookingForm({ formName: "contact_request", trackLocation: "contact_page", compact: true }),
     thankyou: `<div class="content-panel thank-you-panel"><h2>Next step</h2><p>For urgent leaks, sewer backups, or active water damage, call now instead of waiting on a form response.</p><div class="hero-actions"><a class="button button-primary button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="thank_you">Call ${site.phone}</a><a class="button button-light button-large" href="services/">View Services</a></div></div>`,
   };
   return `${head({ title: page.title, description: page.description, path: page.path, schema, noindex: page.noindex })}

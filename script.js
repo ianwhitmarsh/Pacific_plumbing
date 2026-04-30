@@ -112,6 +112,95 @@ function addServicePeekers() {
   });
 }
 
+function normalizeZip(value) {
+  return String(value || "").replace(/\D/g, "").slice(0, 5);
+}
+
+function showBookingStep(form, stepName) {
+  form.querySelectorAll("[data-form-step]").forEach((step) => {
+    const isActive = step.dataset.formStep === stepName;
+    step.hidden = !isActive;
+    step.classList.toggle("form-step-active", isActive);
+  });
+}
+
+function runBookingZipCheck(form) {
+  const zipInput = form.querySelector("[data-zip-input]");
+  const zipMessage = form.querySelector("[data-zip-message]");
+  const zipSuccess = form.querySelector("[data-zip-success]");
+  const supportedZips = new Set((form.dataset.serviceZips || "").split(",").filter(Boolean));
+  const zip = normalizeZip(zipInput?.value);
+
+  if (zipInput) {
+    zipInput.value = zip;
+  }
+
+  if (!zip || zip.length !== 5) {
+    form.dataset.zipQualified = "false";
+    zipMessage.textContent = "Please enter a 5-digit ZIP code.";
+    zipMessage.className = "form-message form-message-error";
+    zipInput?.focus();
+    return false;
+  }
+
+  if (!supportedZips.has(zip)) {
+    form.dataset.zipQualified = "false";
+    zipMessage.textContent = `That ZIP is outside the current online booking area. Call ${document.querySelector(".phone-link")?.textContent || "Pacific Plumbing"} and we can check options.`;
+    zipMessage.className = "form-message form-message-error";
+    zipInput?.focus();
+    trackConversion("zip_outside_service_area", {
+      zip,
+      form: form.dataset.trackForm || "booking",
+    });
+    return false;
+  }
+
+  form.dataset.zipQualified = "true";
+  zipMessage.textContent = "Good news, this ZIP is in our service area.";
+  zipMessage.className = "form-message form-message-success";
+  if (zipSuccess) {
+    zipSuccess.textContent = `Good news, ${zip} is in our service area.`;
+  }
+  showBookingStep(form, "details");
+  form.querySelector('[name="first_name"]')?.focus();
+  trackConversion("zip_service_area_match", {
+    zip,
+    form: form.dataset.trackForm || "booking",
+  });
+  return true;
+}
+
+function setupBookingFlows() {
+  document.querySelectorAll(".booking-flow").forEach((form) => {
+    const zipInput = form.querySelector("[data-zip-input]");
+    const zipCheck = form.querySelector("[data-zip-check]");
+    const zipEdit = form.querySelector("[data-zip-edit]");
+
+    form.dataset.zipQualified = "false";
+
+    zipInput?.addEventListener("input", () => {
+      zipInput.value = normalizeZip(zipInput.value);
+      form.dataset.zipQualified = "false";
+    });
+
+    zipInput?.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      runBookingZipCheck(form);
+    });
+
+    zipCheck?.addEventListener("click", () => {
+      runBookingZipCheck(form);
+    });
+
+    zipEdit?.addEventListener("click", () => {
+      showBookingStep(form, "zip");
+      form.dataset.zipQualified = "false";
+      zipInput?.focus();
+    });
+  });
+}
+
 if (menuButton && mobileMenu) {
   menuButton.addEventListener("click", () => {
     const isOpen = mobileMenu.classList.toggle("is-open");
@@ -139,11 +228,24 @@ document.querySelectorAll("[data-track]").forEach((element) => {
 document.querySelectorAll("form[data-track-form]").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    if (form.classList.contains("booking-flow")) {
+      if (form.dataset.zipQualified !== "true" && !runBookingZipCheck(form)) {
+        return;
+      }
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+    }
+
     trackConversion("form_submit", {
       form: form.dataset.trackForm,
       action: form.getAttribute("action") || "",
+      zip: form.querySelector("[data-zip-input]")?.value || "",
+      service: form.querySelector('[name="service"]')?.value || "",
     });
-    const button = form.querySelector("button");
+    const button = form.querySelector('button[type="submit"]') || form.querySelector("button");
     if (button) {
       button.textContent = "Request Received";
       button.disabled = true;
@@ -161,3 +263,4 @@ document.querySelectorAll(".button:not([data-track]), .service-card, .related-li
 prepareScrollReveals();
 addMagneticHover();
 addServicePeekers();
+setupBookingFlows();

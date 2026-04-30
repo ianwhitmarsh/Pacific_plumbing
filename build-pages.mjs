@@ -375,6 +375,222 @@ const supportPages = [
 
 const locationPages = [
   {
+    slug: "tulsa",
+    city: "Tulsa",
+    county: "Tulsa County",
+    keyword: "plumber Tulsa OK",
+    title: "Plumber in Tulsa, OK | Pacific Plumbing",
+    description:
+      "Need a plumber in Tulsa, OK? Pacific Plumbing serves Tulsa homeowners with water heater repair, leak detection, drains, fixtures, re-piping, gas lines, and water line repair.",
+    h1: "Tulsa plumbing service for everyday repairs and urgent calls.",
+    intro:
+      "Pacific Plumbing helps Tulsa homeowners move from plumbing problem to clear next step, whether the issue is no hot water, a hidden leak, a clogged drain, a fixture replacement, or a bigger piping project.",
+    image: "assets/area-tulsa.jpg",
+    imageAlt: "Tulsa, Oklahoma skyline",
+    imageCredit: "Caleb Long via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Tulsa_Skyline.jpg",
+    license: "CC BY-SA 2.5",
+    localDetails: [
+      "Tulsa water heater repair and installation for homes that need hot water restored quickly.",
+      "Leak detection, water line repair, drain service, sewer support, and re-piping for problems that need a real diagnosis.",
+      "Fixture, bathroom, kitchen, and gas line plumbing for everyday repairs and planned improvements.",
+    ],
+    faqs: [
+      ["Does Pacific Plumbing serve Tulsa?", "Yes. Tulsa is the core service area for Pacific Plumbing's residential plumbing services."],
+      ["What Tulsa plumbing services are available?", "Pacific Plumbing has dedicated pages for water heaters, re-pipes, fixtures, water lines, leak detection, drains and sewer, emergency plumbing, bathroom and kitchen plumbing, and gas lines."],
+      ["How do I schedule a Tulsa plumber?", `Call ${site.phone} or request service online. For active leaks, sewer backups, or suspected gas issues, call instead of waiting on a form response.`],
+    ],
+  },
+  {
+    slug: "broken-arrow",
+    city: "Broken Arrow",
+    county: "Tulsa and Wagoner County",
+    keyword: "plumber Broken Arrow OK",
+    title: "Plumber in Broken Arrow, OK | Pacific Plumbing",
+    description:
+      "Pacific Plumbing serves Broken Arrow, OK with residential plumbing for water heaters, leaks, drains, fixtures, water lines, re-piping, sewer, and gas lines.",
+    h1: "Broken Arrow plumbing help with clean communication.",
+    intro:
+      "When a Broken Arrow home needs plumbing help, Pacific Plumbing keeps the process straightforward: understand the issue, explain the options, and handle the work cleanly.",
+    image: "assets/area-broken-arrow.jpg",
+    imageAlt: "Downtown Broken Arrow, Oklahoma",
+    imageCredit: "Jordan MacDonald via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Downtown_Broken_Arrow.jpg",
+    license: "Public domain",
+    localDetails: [
+      "Broken Arrow water heater service for repairs, replacement planning, and tank or tankless troubleshooting.",
+      "Leak detection, drain cleaning, sewer support, and water line repair for sudden problems or recurring symptoms.",
+      "Fixture installation, bathroom and kitchen plumbing, gas line work, and re-piping for home updates.",
+    ],
+    faqs: [
+      ["Do you serve Broken Arrow, OK?", "Yes. Pacific Plumbing serves Broken Arrow homeowners and nearby Tulsa metro neighborhoods."],
+      ["Can Pacific Plumbing help with Broken Arrow water line problems?", "Yes. The site includes dedicated water line repair and leak detection pages for pressure issues, wet spots, and unexplained water use."],
+      ["What is the best way to request Broken Arrow plumbing service?", `Call ${site.phone} for urgent problems or use the online request form for a planned service window.`],
+    ],
+  },
+  {
+    slug: "bixby",
+    city: "Bixby",
+    county: "Tulsa and Wagoner County",
+    keyword: "plumber Bixby OK",
+    title: "Plumber in Bixby, OK | Pacific Plumbing",
+    description:
+      "Looking for a plumber in Bixby, OK? Pacific Plumbing helps with water heaters, leak detection, drains, sewer, fixtures, water lines, re-piping, and gas lines.",
+    h1: "Bixby plumbers for repairs, remodels, and water problems.",
+    intro:
+      "Pacific Plumbing serves Bixby homeowners who want clear plumbing answers for leaks, water heaters, drains, fixture issues, water lines, and planned upgrades.",
+    image: "assets/area-bixby.jpg",
+    imageAlt: "Bixhoma Lake near Bixby, Oklahoma",
+    imageCredit: "TulGuy via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Bixby_Bixhoma_Lake_5-2025.jpg",
+    license: "CC0",
+    localDetails: [
+      "Bixby leak detection and water line repair for pressure drops, wet spots, and rising water bills.",
+      "Water heater, drain, sewer, and fixture service for everyday plumbing problems around the home.",
+      "Re-piping, bathroom and kitchen plumbing, and gas line support for bigger projects.",
+    ],
+    faqs: [
+      ["Does Pacific Plumbing serve Bixby?", "Yes. Bixby is included in Pacific Plumbing's Tulsa metro plumbing service area."],
+      ["Which Bixby plumbing services have dedicated pages?", "Dedicated pages cover water heaters, re-pipes, fixtures, water lines, leak detection, drains and sewer, emergency plumbing, bathroom and kitchen plumbing, and gas lines."],
+      ["Can I book Bixby plumbing service online?", `Yes. You can request service online, or call ${site.phone} when the plumbing issue is urgent.`],
+    ],
+  },
+  {
+    slug: "jenks",
+    city: "Jenks",
+    county: "Tulsa County",
+    keyword: "plumber Jenks OK",
+    title: "Plumber in Jenks, OK | Pacific Plumbing",
+    description:
+      "Pacific Plumbing serves Jenks, OK homeowners with water heater repair, leak detection, drains, sewer, fixtures, re-piping, water lines, and gas line plumbing.",
+    h1: "Jenks plumbing service that makes the fix clear.",
+    intro:
+      "From homes near the river to neighborhoods across Jenks, Pacific Plumbing helps homeowners understand plumbing problems and choose the right repair path.",
+    image: "assets/area-jenks.jpg",
+    imageAlt: "Riverwalk area in Jenks, Oklahoma",
+    imageCredit: "Emersonbiggins85 via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Jenks_riverwalk.jpg",
+    license: "CC BY-SA 3.0",
+    localDetails: [
+      "Jenks water heater repair and installation when hot water is inconsistent or gone.",
+      "Drain, sewer, leak detection, and water line repair for plumbing problems that need practical diagnosis.",
+      "Fixtures, re-piping, gas lines, and bathroom or kitchen plumbing for planned projects and repairs.",
+    ],
+    faqs: [
+      ["Is Jenks in the Pacific Plumbing service area?", "Yes. Pacific Plumbing serves Jenks and surrounding Tulsa metro communities."],
+      ["Can Pacific Plumbing help with Jenks drain and sewer problems?", "Yes. Drain and sewer service has its own dedicated page with signs, process, and next steps."],
+      ["How should Jenks homeowners schedule service?", `Call ${site.phone} or request service online. For active leaks or sewer backups, calling is the fastest first step.`],
+    ],
+  },
+  {
+    slug: "owasso",
+    city: "Owasso",
+    county: "Tulsa and Rogers County",
+    keyword: "plumber Owasso OK",
+    title: "Plumber in Owasso, OK | Pacific Plumbing",
+    description:
+      "Need a plumber in Owasso, OK? Pacific Plumbing serves Owasso homes with leak detection, water heaters, drains, sewer, fixtures, re-piping, water lines, and gas lines.",
+    h1: "Owasso plumbing service for clear answers and clean work.",
+    intro:
+      "Pacific Plumbing helps Owasso homeowners handle plumbing repairs and upgrades with practical explanations, direct service links, and a simple booking path.",
+    image: "assets/area-owasso.jpg",
+    imageAlt: "City Hall in Owasso, Oklahoma",
+    imageCredit: "Frank Boston via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:City_Hall,_Owasso,_Oklahoma.jpg",
+    license: "CC BY 2.0",
+    localDetails: [
+      "Owasso water heater, fixture, and drain service for everyday plumbing issues.",
+      "Leak detection, sewer support, and water line repair for sudden leaks, pressure problems, or wet areas.",
+      "Re-piping, gas line plumbing, and bathroom or kitchen plumbing for home improvements.",
+    ],
+    faqs: [
+      ["Does Pacific Plumbing serve Owasso?", "Yes. Pacific Plumbing serves Owasso homeowners as part of the expanded Tulsa metro service area."],
+      ["What plumbing problems do Owasso homeowners call about?", "Common calls include water heater issues, leaks, clogged drains, running toilets, fixture replacements, water line problems, and planned re-piping."],
+      ["What should I do for an urgent Owasso plumbing problem?", `Call ${site.phone} so Pacific Plumbing can help you understand the safest next step.`],
+    ],
+  },
+  {
+    slug: "sand-springs",
+    city: "Sand Springs",
+    county: "Tulsa and Osage County",
+    keyword: "plumber Sand Springs OK",
+    title: "Plumber in Sand Springs, OK | Pacific Plumbing",
+    description:
+      "Pacific Plumbing serves Sand Springs, OK with residential plumbing for water heaters, leak detection, drains, sewer, fixtures, water lines, gas lines, and re-piping.",
+    h1: "Sand Springs plumbing service with the next step spelled out.",
+    intro:
+      "When a Sand Springs home has a leak, slow drain, water heater problem, fixture issue, or piping concern, Pacific Plumbing helps make the repair path easier to understand.",
+    image: "assets/area-sand-springs.jpg",
+    imageAlt: "Sand Springs, Oklahoma power plant",
+    imageCredit: "TulGuy via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Sand_Springs_Power_Plant_2-2026_Wikipedia.jpg",
+    license: "CC BY 4.0",
+    localDetails: [
+      "Sand Springs drain, sewer, and leak detection service for problems that need more than a guess.",
+      "Water heater repair, fixture installation, water line repair, and re-piping support for residential plumbing systems.",
+      "Bathroom, kitchen, and gas line plumbing for planned improvements and everyday repairs.",
+    ],
+    faqs: [
+      ["Is Sand Springs in Pacific Plumbing's service area?", "Yes. Sand Springs is included in Pacific Plumbing's Tulsa metro plumbing service area."],
+      ["Can Pacific Plumbing help with Sand Springs water heater issues?", "Yes. Pacific Plumbing supports water heater repair, replacement planning, and tank or tankless troubleshooting."],
+      ["How do I request Sand Springs plumbing service?", `Call ${site.phone} or use the online form. For active water damage or sewer backup, calling is better than waiting on a form response.`],
+    ],
+  },
+  {
+    slug: "glenpool",
+    city: "Glenpool",
+    county: "Tulsa County",
+    keyword: "plumber Glenpool OK",
+    title: "Plumber in Glenpool, OK | Pacific Plumbing",
+    description:
+      "Pacific Plumbing serves Glenpool, OK homeowners with water heaters, leak detection, drains, sewer, fixtures, water lines, re-piping, bathroom plumbing, and gas lines.",
+    h1: "Glenpool plumbing help for leaks, drains, water heaters, and more.",
+    intro:
+      "Pacific Plumbing gives Glenpool homeowners a straightforward way to get plumbing help, compare service options, and move forward with confidence.",
+    image: "assets/area-glenpool.jpg",
+    imageAlt: "Glenpool Conference Center pond in Glenpool, Oklahoma",
+    imageCredit: "City of Glenpool via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Glenpool_Conference_Center_pond_view.jpg",
+    license: "CC BY-SA 4.0",
+    localDetails: [
+      "Glenpool water heater repair, drain service, sewer support, and leak detection for urgent and recurring issues.",
+      "Fixture replacement, water line repair, and re-piping for homes with aging or unreliable plumbing.",
+      "Bathroom, kitchen, and gas line plumbing for remodels and planned upgrades.",
+    ],
+    faqs: [
+      ["Does Pacific Plumbing serve Glenpool?", "Yes. Pacific Plumbing serves Glenpool and nearby south Tulsa metro communities."],
+      ["What Glenpool plumbing services are linked from this page?", "This page links to water heaters, re-pipes, fixtures, water lines, leak detection, drains and sewer, emergency plumbing, bathroom and kitchen plumbing, and gas lines."],
+      ["What is the fastest way to get Glenpool plumbing help?", `Call ${site.phone} for urgent issues, or use the booking form for a planned service window.`],
+    ],
+  },
+  {
+    slug: "claremore",
+    city: "Claremore",
+    county: "Rogers County",
+    keyword: "plumber Claremore OK",
+    title: "Plumber in Claremore, OK | Pacific Plumbing",
+    description:
+      "Looking for a plumber in Claremore, OK? Pacific Plumbing helps Claremore homeowners with water heaters, drains, sewer, leaks, fixtures, re-piping, water lines, and gas lines.",
+    h1: "Claremore plumbing service for repairs and planned projects.",
+    intro:
+      "Pacific Plumbing serves Claremore homeowners who need plumbing problems explained clearly and handled with clean, practical work.",
+    image: "assets/area-claremore.jpg",
+    imageAlt: "Downtown Claremore, Oklahoma",
+    imageCredit: "Okiefromokla via Wikimedia Commons",
+    imageCreditUrl: "https://commons.wikimedia.org/wiki/File:Downtownclaremore2.jpg",
+    license: "Public domain",
+    localDetails: [
+      "Claremore water heater, drain, sewer, and leak detection service for problems that interrupt the day.",
+      "Fixture installation, water line repair, and re-piping support for older plumbing or planned upgrades.",
+      "Bathroom, kitchen, and gas line plumbing with clear communication before work begins.",
+    ],
+    faqs: [
+      ["Does Pacific Plumbing serve Claremore?", "Yes. Claremore is included in Pacific Plumbing's expanded service area for residential plumbing service."],
+      ["Can Pacific Plumbing help with Claremore drain and sewer issues?", "Yes. Drain and sewer problems have a dedicated service page with signs to watch for and the usual service process."],
+      ["How can Claremore homeowners schedule service?", `Call ${site.phone} or request service online. For urgent leaks, sewer backups, or suspected gas issues, call first.`],
+    ],
+  },
+  {
     slug: "collinsville",
     city: "Collinsville",
     county: "Tulsa County",

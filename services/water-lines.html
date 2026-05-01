@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.pacificplumbingtulsa.com/services/water-lines.html">
     <meta property="og:image" content="https://www.pacificplumbingtulsa.com/assets/water-lines-service.png">
-    <link rel="stylesheet" href="../styles.css?v=site-motion-12">
+    <link rel="stylesheet" href="../styles.css?v=site-motion-13">
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "PlumbingContractor",
@@ -401,7 +401,9 @@
           <h2 id="booking-modal-title">Start with your ZIP code.</h2>
           <p>We will confirm Pacific Plumbing serves your area, then collect the basics for the service you need.</p>
         </div>
-        <form class="booking-form booking-flow support-form" action="../thank-you.html" method="post" data-track-form="modal_booking_request" data-service-zips="74103,74104,74105,74106,74107,74108,74110,74112,74114,74115,74116,74117,74119,74120,74126,74127,74128,74129,74130,74131,74132,74133,74134,74135,74136,74137,74145,74146,74147,74008,74011,74012,74013,74014,74015,74017,74018,74019,74021,74033,74037,74055,74063,74066,74067" novalidate>
+        <form class="booking-form booking-flow support-form" action="/api/booking" method="post" data-track-form="modal_booking_request" data-service-zips="74103,74104,74105,74106,74107,74108,74110,74112,74114,74115,74116,74117,74119,74120,74126,74127,74128,74129,74130,74131,74132,74133,74134,74135,74136,74137,74145,74146,74147,74008,74011,74012,74013,74014,74015,74017,74018,74019,74021,74033,74037,74055,74063,74066,74067" novalidate>
+        <input type="hidden" name="_redirect" value="/thank-you.html">
+        <input type="hidden" name="_source" value="Pacific Plumbing website">
         <div class="form-step form-step-active" data-form-step="zip">
           <div class="form-step-header"><span>Step 1</span><strong>Check your ZIP code</strong></div>
           <label>ZIP code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="Enter ZIP code" maxlength="5" data-zip-input required></label>
@@ -422,6 +424,7 @@
             <button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="booking_modal">Request Service</button>
             <button class="button button-light" type="button" data-zip-edit>Change ZIP</button>
           </div>
+          <p class="form-message" data-submit-message aria-live="polite"></p>
           <p class="form-note">For active leaks, sewer backups, or suspected gas issues, call instead of waiting on a form response.</p>
         </div>
       </form>
@@ -431,6 +434,6 @@
       <a href="tel:9187719078" data-track="phone_click" data-track-location="mobile_sticky">Call Now</a>
       <a href="../contact.html" data-booking-modal-open data-track="booking_click" data-track-location="mobile_sticky" aria-haspopup="dialog" aria-controls="booking-modal">Book Online</a>
     </div>
-    <script src="../script.js?v=site-motion-12"></script>
+    <script src="../script.js?v=site-motion-13"></script>
   </body>
 </html>

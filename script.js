@@ -131,12 +131,17 @@ function resetBookingForm(form) {
   form.dataset.zipQualified = "false";
   const zipMessage = form.querySelector("[data-zip-message]");
   const zipSuccess = form.querySelector("[data-zip-success]");
+  const submitMessage = form.querySelector("[data-submit-message]");
   if (zipMessage) {
     zipMessage.textContent = "Enter your ZIP code to confirm service availability.";
     zipMessage.className = "form-message";
   }
   if (zipSuccess) {
     zipSuccess.textContent = "";
+  }
+  if (submitMessage) {
+    submitMessage.textContent = "";
+    submitMessage.className = "form-message";
   }
   showBookingStep(form, "zip");
 }
@@ -298,7 +303,7 @@ document.querySelectorAll("[data-track]").forEach((element) => {
 });
 
 document.querySelectorAll("form[data-track-form]").forEach((form) => {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (form.classList.contains("booking-flow")) {
       if (form.dataset.zipQualified !== "true" && !runBookingZipCheck(form)) {
@@ -311,20 +316,64 @@ document.querySelectorAll("form[data-track-form]").forEach((form) => {
       }
     }
 
+    const button = form.querySelector('button[type="submit"]') || form.querySelector("button");
+    const submitMessage = form.querySelector("[data-submit-message]");
+    const redirectUrl = form.querySelector('[name="_redirect"]')?.value || "thank-you.html";
+    const formData = new FormData(form);
+    formData.set("form_name", form.dataset.trackForm || "booking");
+    formData.set("page_url", window.location.href);
+    formData.set("submitted_at", new Date().toISOString());
+    const payload = Object.fromEntries(formData.entries());
+
     trackConversion("form_submit", {
       form: form.dataset.trackForm,
       action: form.getAttribute("action") || "",
       zip: form.querySelector("[data-zip-input]")?.value || "",
       service: form.querySelector('[name="service"]')?.value || "",
     });
-    const button = form.querySelector('button[type="submit"]') || form.querySelector("button");
     if (button) {
-      button.textContent = "Request Received";
+      button.dataset.originalText = button.dataset.originalText || button.textContent;
+      button.textContent = "Sending...";
       button.disabled = true;
     }
-    window.setTimeout(() => {
-      window.location.href = form.getAttribute("action") || "thank-you.html";
-    }, 500);
+
+    try {
+      const response = await fetch(form.getAttribute("action") || "/api/booking", {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.ok === false) {
+        throw new Error(result.message || "The request could not be sent.");
+      }
+      if (button) {
+        button.textContent = "Request Received";
+      }
+      if (submitMessage) {
+        submitMessage.textContent = "Request received. Taking you to the next step.";
+        submitMessage.className = "form-message form-message-success";
+      }
+      window.setTimeout(() => {
+        window.location.href = result.redirect || redirectUrl;
+      }, 450);
+    } catch (error) {
+      if (button) {
+        button.textContent = button.dataset.originalText || "Request Service";
+        button.disabled = false;
+      }
+      if (submitMessage) {
+        submitMessage.textContent = "We could not send that request. Please call Pacific Plumbing or try again.";
+        submitMessage.className = "form-message form-message-error";
+      }
+      trackConversion("form_submit_error", {
+        form: form.dataset.trackForm,
+        message: error.message,
+      });
+    }
   });
 });
 

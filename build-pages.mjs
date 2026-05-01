@@ -30,7 +30,7 @@ const site = {
   ],
 };
 
-const scriptVersion = "site-motion-12";
+const scriptVersion = "site-motion-13";
 
 const serviceAreaZipCodes = [
   "74103",
@@ -934,7 +934,9 @@ function serviceOptions() {
 }
 
 function bookingForm({ prefix = "", formName = "service_request", trackLocation = "cta_band", compact = false } = {}) {
-  return `<form class="booking-form booking-flow${compact ? " support-form" : ""}" action="${prefix}thank-you.html" method="post" data-track-form="${formName}" data-service-zips="${serviceAreaZipCodes.join(",")}" novalidate>
+  return `<form class="booking-form booking-flow${compact ? " support-form" : ""}" action="/api/booking" method="post" data-track-form="${formName}" data-service-zips="${serviceAreaZipCodes.join(",")}" novalidate>
+        <input type="hidden" name="_redirect" value="/thank-you.html">
+        <input type="hidden" name="_source" value="Pacific Plumbing website">
         <div class="form-step form-step-active" data-form-step="zip">
           <div class="form-step-header"><span>Step 1</span><strong>Check your ZIP code</strong></div>
           <label>ZIP code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="Enter ZIP code" maxlength="5" data-zip-input required></label>
@@ -955,6 +957,7 @@ function bookingForm({ prefix = "", formName = "service_request", trackLocation 
             <button class="button button-primary button-large" type="submit" data-track="form_submit" data-track-location="${trackLocation}">Request Service</button>
             <button class="button button-light" type="button" data-zip-edit>Change ZIP</button>
           </div>
+          <p class="form-message" data-submit-message aria-live="polite"></p>
           <p class="form-note">For active leaks, sewer backups, or suspected gas issues, call instead of waiting on a form response.</p>
         </div>
       </form>`;

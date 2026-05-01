@@ -5,7 +5,11 @@ let lastBookingOpener = null;
 
 function trackConversion(eventName, details = {}) {
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: eventName, ...details });
+  const payload = { event: eventName, ...details };
+  window.dataLayer.push(payload);
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, details);
+  }
   window.dispatchEvent(new CustomEvent("pacific:conversion", { detail: { eventName, ...details } }));
 }
 

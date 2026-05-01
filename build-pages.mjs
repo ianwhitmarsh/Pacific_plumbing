@@ -2,11 +2,28 @@ import { mkdir, writeFile } from "node:fs/promises";
 
 const site = {
   name: "Pacific Plumbing",
-  baseUrl: "https://www.pacificplumbingtulsa.com",
+  baseUrl: "https://www.pacificplumbingok.com",
+  shareTitle: "Pacific Plumbing | Tulsa Plumbers",
+  shareImage: "assets/pacific-new-logo.png",
   phone: "(918) 771-9078",
+  phoneE164: "+19187719078",
   phoneHref: "tel:9187719078",
   city: "Tulsa",
   image: "/assets/pacific-truck-mascot.png",
+  googleAnalyticsId: "",
+  googleSiteVerification: "",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=7122%20S%20Sheridan%20St%20Tulsa%20OK%2074133",
+  address: {
+    streetAddress: "7122 S Sheridan St, Suite 2 Box 176",
+    addressLocality: "Tulsa",
+    addressRegion: "OK",
+    postalCode: "74133",
+    addressCountry: "US",
+  },
+  geo: {
+    latitude: 36.06059,
+    longitude: -95.904369,
+  },
   social: [
     { name: "Instagram", url: "https://www.instagram.com/pacificplumbingok/?hl=en" },
     { name: "Facebook", url: "https://www.facebook.com/leftcoastplumber" },
@@ -30,7 +47,69 @@ const site = {
   ],
 };
 
-const scriptVersion = "site-motion-13";
+const scriptVersion = "seo-optimization-14";
+
+const imageMeta = {
+  "assets/area-bixby.jpg": { width: 640, height: 480, optimized: true },
+  "assets/area-broken-arrow.jpg": { width: 1600, height: 1200, optimized: true },
+  "assets/area-catoosa.jpg": { width: 1600, height: 790, optimized: true },
+  "assets/area-claremore.jpg": { width: 1600, height: 1162, optimized: true },
+  "assets/area-collinsville.jpg": { width: 640, height: 480, optimized: true },
+  "assets/area-glenpool.jpg": { width: 1600, height: 1199, optimized: true },
+  "assets/area-jenks.jpg": { width: 500, height: 333, optimized: true },
+  "assets/area-owasso.jpg": { width: 1600, height: 855, optimized: true },
+  "assets/area-sand-springs.jpg": { width: 640, height: 314, optimized: true },
+  "assets/area-sapulpa.jpg": { width: 1600, height: 1349, optimized: true },
+  "assets/area-tulsa.jpg": { width: 1600, height: 1062, optimized: true },
+  "assets/area-verdigris.jpg": { width: 1600, height: 991, optimized: true },
+  "assets/banana-contact.png": { width: 893, height: 1188 },
+  "assets/banana-look-over.png": { width: 1034, height: 822 },
+  "assets/bathroom-kitchen-service.png": { width: 1411, height: 1114, optimized: true },
+  "assets/drain-sewer-service.png": { width: 1412, height: 1114, optimized: true },
+  "assets/emergency-plumbing-service.png": { width: 1410, height: 1116, optimized: true },
+  "assets/fixtures-service.png": { width: 1411, height: 1115, optimized: true },
+  "assets/gas-lines-service.png": { width: 1122, height: 1402, optimized: true },
+  "assets/leak-detection-service.png": { width: 1408, height: 1117, optimized: true },
+  "assets/pacific-billboard.png": { width: 1536, height: 1024, optimized: true },
+  "assets/pacific-new-logo.png": { width: 1210, height: 793 },
+  "assets/pacific-truck-mascot.png": { width: 1402, height: 1122, optimized: true },
+  "assets/re-piping-service.png": { width: 1412, height: 1114, optimized: true },
+  "assets/water-heater-service.png": { width: 1412, height: 1114, optimized: true },
+  "assets/water-lines-service.png": { width: 1412, height: 1114, optimized: true },
+};
+
+const crawlableReviews = [
+  {
+    author: "Sam Harbin Sr",
+    rating: 5,
+    datePublished: "2026-04-30",
+    summary: "Great work, friendly service, efficient repairs, and clean job sites.",
+  },
+  {
+    author: "Robert Loller",
+    rating: 5,
+    datePublished: "2026-04-23",
+    summary: "Responsive tankless water heater help, clear maintenance guidance, and service they stand behind.",
+  },
+  {
+    author: "Ken Saveth",
+    rating: 5,
+    datePublished: "2026-04-21",
+    summary: "Phenomenal service, polite communication, and a trusted go-to plumbing team.",
+  },
+  {
+    author: "Ascension Investments",
+    rating: 5,
+    datePublished: "2026-04-21",
+    summary: "Straightforward, ethical plumbing help with real options and no unnecessary upsells.",
+  },
+  {
+    author: "Randy Blake Jr",
+    rating: 5,
+    datePublished: "2026-04-20",
+    summary: "Honest, reliable, efficient service after a busted sewer pipe issue.",
+  },
+];
 
 const serviceAreaZipCodes = [
   "74103",
@@ -393,7 +472,7 @@ const supportPages = [
     h1: "Reviews should prove the promise.",
     eyebrow: "Reviews",
     copy:
-      "Real customer reviews should be added here as soon as they are available. Until then, this page is structured to explain what the review strategy needs to show: clear communication, clean work, fair options, and reliable results.",
+      "Pacific Plumbing's public review profile gives homeowners proof of the service promise: responsive communication, careful work, practical options, and clean follow-through.",
     type: "reviews",
   },
   {
@@ -748,6 +827,81 @@ const locationPages = [
   },
 ];
 
+const locationContext = {
+  tulsa: {
+    heading: "Plumbing calls across Tulsa vary by neighborhood and home age.",
+    copy:
+      "Midtown homes, newer south Tulsa neighborhoods, and older properties near downtown can show different plumbing symptoms. Pacific Plumbing uses each call to narrow the issue before recommending repair, replacement, or a next diagnostic step.",
+    problems: ["older supply piping", "tree-root sewer pressure", "slab leak symptoms", "water heater age", "fixture upgrades during remodels"],
+  },
+  "broken-arrow": {
+    heading: "Broken Arrow homeowners often balance fast growth with everyday repairs.",
+    copy:
+      "From established neighborhoods to newer builds, Broken Arrow plumbing calls often involve water heater performance, fixture replacements, clogged drains, and pressure questions that need a simple explanation before work begins.",
+    problems: ["tank and tankless water heater service", "new fixture installs", "drain backups", "pressure issues", "leak checks after home updates"],
+  },
+  bixby: {
+    heading: "Bixby plumbing needs often connect to newer homes and growing neighborhoods.",
+    copy:
+      "Bixby homeowners frequently need help with water lines, fixture changes, water heater questions, and drains that show symptoms before the underlying cause is obvious.",
+    problems: ["water line pressure", "bathroom fixture updates", "kitchen plumbing changes", "water heater maintenance", "hidden leak symptoms"],
+  },
+  jenks: {
+    heading: "Jenks plumbing calls often come from remodels, fixtures, and busy family homes.",
+    copy:
+      "Homes around Jenks can need everything from fixture upgrades to drain service and water heater repair. Pacific Plumbing keeps those calls practical by matching the problem to the right service page and next step.",
+    problems: ["kitchen and bath updates", "toilet and faucet repairs", "water heater recovery", "slow drains", "gas appliance planning"],
+  },
+  owasso: {
+    heading: "Owasso's growth creates a mix of new-system questions and standard repairs.",
+    copy:
+      "Owasso homeowners often call about water heaters, drains, fixture failures, and leak symptoms. The goal is to keep the visit focused and avoid turning a simple issue into a vague project.",
+    problems: ["water heater troubleshooting", "drain clearing", "fixture leaks", "water line checks", "planned re-piping conversations"],
+  },
+  "sand-springs": {
+    heading: "Sand Springs homes can bring older plumbing and terrain-related symptoms.",
+    copy:
+      "Some Sand Springs plumbing calls involve older pipes, slow sewer lines, water pressure concerns, or leaks that need a careful look before a repair path is chosen.",
+    problems: ["aging supply lines", "sewer odors", "recurring clogs", "yard wet spots", "fixture shutoff issues"],
+  },
+  glenpool: {
+    heading: "Glenpool plumbing work often centers on practical home maintenance.",
+    copy:
+      "Glenpool homeowners often need a direct answer for water heaters, drains, leaking fixtures, and water line symptoms. Pacific Plumbing keeps the page tied to those high-intent service needs.",
+    problems: ["water heater replacement planning", "bathroom plumbing repairs", "drain backups", "leak detection", "water line pressure"],
+  },
+  claremore: {
+    heading: "Claremore plumbing service needs range from older homes to newer updates.",
+    copy:
+      "Claremore calls can involve water heaters, drains, re-piping discussions, fixture replacements, or water line issues that need clear inspection before a homeowner commits to a fix.",
+    problems: ["water heater age", "sewer and drain symptoms", "older pipe materials", "fixture replacements", "gas line planning"],
+  },
+  collinsville: {
+    heading: "Collinsville homeowners often need help that fits both town and rural-edge homes.",
+    copy:
+      "Plumbing calls in Collinsville can include water pressure, fixture issues, water heaters, leaks, and drain problems. Pacific Plumbing keeps the experience simple with a clear service path.",
+    problems: ["pressure changes", "water line repair", "water heater problems", "fixture leaks", "drain clogs"],
+  },
+  catoosa: {
+    heading: "Catoosa plumbing calls often involve quick diagnosis before bigger repairs.",
+    copy:
+      "For Catoosa homeowners, a slow drain, water heater issue, or hidden leak can point to several possible causes. The page is structured to route each search to the right dedicated service.",
+    problems: ["drain clearing", "sewer line signs", "water heater issues", "fixture swaps", "leak detection"],
+  },
+  verdigris: {
+    heading: "Verdigris plumbing help should account for homes outside the dense city core.",
+    copy:
+      "Verdigris homeowners often need practical help with water lines, leaks, drains, water heaters, and fixture repairs. Pacific Plumbing keeps the next step clear before work starts.",
+    problems: ["water line concerns", "leak detection", "drain backups", "water heater service", "bathroom and kitchen fixtures"],
+  },
+  sapulpa: {
+    heading: "Sapulpa plumbing calls often combine older-home repairs and everyday service.",
+    copy:
+      "Sapulpa homeowners may need help with drains, sewer symptoms, leak detection, water heaters, or fixtures. The local page connects those searches to the right Pacific Plumbing service page.",
+    problems: ["slow drains", "sewer backups", "older plumbing repairs", "fixture updates", "water heater reliability"],
+  },
+};
+
 function esc(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -763,6 +917,64 @@ function absolute(path = "") {
 
 function relativePrefix(path) {
   return path.includes("/") ? "../" : "";
+}
+
+function optimizedBase(image) {
+  const fileName = image.split("/").pop();
+  return fileName.replace(/\.(png|jpe?g)$/i, "");
+}
+
+function optimizedImagePath(image, width, format = "jpg") {
+  return `assets/optimized/${optimizedBase(image)}-${width}.${format}`;
+}
+
+function imageWidthSet(image) {
+  const meta = imageMeta[image];
+  if (!meta?.optimized) return [];
+  return [480, 800, 1200].filter((width) => width <= meta.width);
+}
+
+function responsiveImage(
+  image,
+  {
+    prefix = "",
+    alt = "",
+    sizes = "(max-width: 760px) 100vw, 50vw",
+    loading = "lazy",
+    fetchpriority = "",
+    className = "",
+  } = {},
+) {
+  const meta = imageMeta[image] || {};
+  const widths = imageWidthSet(image);
+  const attrs = [
+    `src="${prefix}${image}"`,
+    `alt="${esc(alt)}"`,
+    meta.width ? `width="${meta.width}"` : "",
+    meta.height ? `height="${meta.height}"` : "",
+    `loading="${loading}"`,
+    'decoding="async"',
+    fetchpriority ? `fetchpriority="${fetchpriority}"` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const img = `<img ${attrs}>`;
+
+  if (!widths.length) return img;
+
+  const avifSrcset = widths.map((width) => `${prefix}${optimizedImagePath(image, width, "avif")} ${width}w`).join(", ");
+  const jpegSrcset = widths.map((width) => `${prefix}${optimizedImagePath(image, width, "jpg")} ${width}w`).join(", ");
+  return `<picture${className ? ` class="${className}"` : ""}><source type="image/avif" srcset="${avifSrcset}" sizes="${sizes}"><source type="image/jpeg" srcset="${jpegSrcset}" sizes="${sizes}">${img}</picture>`;
+}
+
+function preloadImage(image, sizes = "(max-width: 760px) 100vw, 50vw") {
+  const widths = imageWidthSet(image);
+  if (!widths.length) {
+    return `<link rel="preload" as="image" href="${absolute(image)}">`;
+  }
+  const href = absolute(optimizedImagePath(image, Math.max(...widths), "avif"));
+  const srcset = widths.map((width) => `${absolute(optimizedImagePath(image, width, "avif"))} ${width}w`).join(", ");
+  return `<link rel="preload" as="image" href="${href}" imagesrcset="${srcset}" imagesizes="${sizes}" type="image/avif" fetchpriority="high">`;
 }
 
 function bookingLinkAttrs(prefix = "", location = "booking") {
@@ -812,6 +1024,7 @@ function footer(prefix = "") {
           </div>
           <p>Ready for slippery situations. Honest service. Quality work. Tulsa proud.</p>
           <a href="${site.phoneHref}">${site.phone}</a>
+          <address>${esc(site.address.streetAddress)}<br>${esc(site.address.addressLocality)}, ${esc(site.address.addressRegion)} ${esc(site.address.postalCode)}</address>
           <div class="social-links" aria-label="Pacific Plumbing social links">
             ${site.social.map((item) => `<a href="${item.url}" target="_blank" rel="noopener noreferrer">${esc(item.name)}</a>`).join("")}
           </div>
@@ -857,14 +1070,42 @@ function localBusinessSchema() {
     "@type": "PlumbingContractor",
     "@id": `${site.baseUrl}/#business`,
     name: site.name,
+    alternateName: "Pacific Plumbing OK",
     url: site.baseUrl,
-    telephone: site.phone,
+    telephone: site.phoneE164,
     logo: absolute("assets/pacific-new-logo.png"),
     image: absolute("assets/pacific-truck-mascot.png"),
+    description: site.description,
+    address: {
+      "@type": "PostalAddress",
+      ...site.address,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: site.geo.latitude,
+      longitude: site.geo.longitude,
+    },
+    hasMap: site.mapUrl,
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "00:00",
+        closes: "23:59",
+      },
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: site.phoneE164,
+      contactType: "customer service",
+      areaServed: "US-OK",
+      availableLanguage: "English",
+    },
     sameAs: site.social.map((item) => item.url),
     priceRange: "$$",
     slogan: "Ready for slippery situations.",
-    areaServed: site.areas.map((area) => ({ "@type": "City", name: area })),
+    areaServed: site.areas.map((area) => ({ "@type": "City", name: `${area}, OK` })),
+    knowsAbout: services.map((service) => service.name),
     makesOffer: services.map((service) => ({
       "@type": "Offer",
       itemOffered: {
@@ -904,8 +1145,25 @@ function faqSchema(faqs) {
   };
 }
 
-function head({ title, description, path, prefix = "", schema = [], noindex = false, ogImage = "assets/pacific-truck-mascot.png" }) {
+function analyticsHead() {
+  const dataLayerInit = `<script>window.dataLayer=window.dataLayer||[];window.pacificTracking={site:"${esc(site.name)}",domain:"${site.baseUrl}",phone:"${site.phoneE164}"};</script>`;
+  if (!site.googleAnalyticsId) return dataLayerInit;
+  return `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(site.googleAnalyticsId)}"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","${esc(site.googleAnalyticsId)}");window.pacificTracking={site:"${esc(site.name)}",domain:"${site.baseUrl}",phone:"${site.phoneE164}"};</script>`;
+}
+
+function head({
+  title,
+  description,
+  path,
+  prefix = "",
+  schema = [],
+  noindex = false,
+  ogImage = "assets/pacific-truck-mascot.png",
+  preload = "",
+}) {
   const canonical = absolute(path);
+  const shareImage = absolute(site.shareImage || ogImage);
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -913,14 +1171,27 @@ function head({ title, description, path, prefix = "", schema = [], noindex = fa
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
-    ${noindex ? '<meta name="robots" content="noindex,follow">' : ""}
+    <meta name="theme-color" content="#062b55">
+    ${noindex ? '<meta name="robots" content="noindex,follow">' : '<meta name="robots" content="index,follow,max-image-preview:large">'}
+    ${site.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(site.googleSiteVerification)}">` : ""}
     <link rel="canonical" href="${canonical}">
-    <meta property="og:title" content="${esc(title)}">
+    ${preload}
+    <meta property="og:title" content="${esc(site.shareTitle)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="${canonical}">
-    <meta property="og:image" content="${absolute(ogImage)}">
+    <meta property="og:image" content="${shareImage}">
+    <meta property="og:image:secure_url" content="${shareImage}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1210">
+    <meta property="og:image:height" content="793">
+    <meta property="og:image:alt" content="Pacific Plumbing logo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(site.shareTitle)}">
+    <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:image" content="${shareImage}">
     <link rel="stylesheet" href="${prefix}styles.css?v=${scriptVersion}">
+    ${analyticsHead()}
     ${schema.map(jsonLd).join("\n    ")}
   </head>`;
 }
@@ -1000,7 +1271,7 @@ function ctaBand(prefix = "") {
 function serviceCards(prefix = "", limit = services.length) {
   return services.slice(0, limit).map((service) => `
     <div class="service-card-wrap">
-      <span class="service-peeker" aria-hidden="true"><img src="${prefix}assets/banana-look-over.png" alt=""></span>
+      <span class="service-peeker" aria-hidden="true">${responsiveImage("assets/banana-look-over.png", { prefix, alt: "", loading: "lazy" })}</span>
       <a class="service-card" href="${prefix}services/${service.slug}.html">
         ${serviceIcon()}
         <strong>${esc(service.shortName)}</strong>
@@ -1028,7 +1299,7 @@ function locationCards(prefix = "") {
   return locationPages
     .map((location) => `
       <a class="area-card" href="${prefix}service-areas/${location.slug}.html">
-        <img src="${prefix}${location.image}" alt="${esc(location.imageAlt)}">
+        ${responsiveImage(location.image, { prefix, alt: location.imageAlt, sizes: "(max-width: 760px) 100vw, 33vw" })}
         <span>
           <small>${esc(location.keyword)}</small>
           <strong>${esc(location.city)} Plumbing</strong>
@@ -1059,6 +1330,27 @@ function relatedServices(current, prefix = "../") {
     .join("");
 }
 
+function crawlableReviewsSection() {
+  return `<div class="review-seo-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Verified review signals</p>
+      <h2>Crawlable Pacific Plumbing review highlights.</h2>
+      <p>These public review snippets give search engines and homeowners readable trust signals alongside the embedded live review widget.</p>
+    </div>
+    <div class="review-highlight-grid">
+      ${crawlableReviews
+        .map(
+          (review) => `<article>
+            <div class="review-stars" aria-label="${review.rating} out of 5 stars">★★★★★</div>
+            <p>${esc(review.summary)}</p>
+            <footer><strong>${esc(review.author)}</strong><span>${esc(review.datePublished)}</span></footer>
+          </article>`,
+        )
+        .join("")}
+    </div>
+  </div>`;
+}
+
 function homepage() {
   const schema = [
     localBusinessSchema(),
@@ -1067,14 +1359,17 @@ function homepage() {
       "@type": "WebSite",
       name: site.name,
       url: site.baseUrl,
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${site.baseUrl}/services/?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
+      inLanguage: "en-US",
+      publisher: { "@id": `${site.baseUrl}/#business` },
     },
   ];
-  return `${head({ title: "Pacific Plumbing | Tulsa Plumbers Ready for Slippery Situations", description: site.description, path: "/", schema })}
+  return `${head({
+    title: "Pacific Plumbing | Tulsa Plumbers Ready for Slippery Situations",
+    description: site.description,
+    path: "/",
+    schema,
+    preload: preloadImage("assets/pacific-truck-mascot.png", "(max-width: 900px) 100vw, 52vw"),
+  })}
   <body>
     ${nav("")}
     <main id="top">
@@ -1094,7 +1389,12 @@ function homepage() {
             </div>
           </div>
           <div class="hero-image">
-            <img src="assets/pacific-truck-mascot.png" alt="Pacific Plumbing mascot standing beside a branded plumbing truck">
+            ${responsiveImage("assets/pacific-truck-mascot.png", {
+              alt: "Pacific Plumbing mascot standing beside a branded plumbing truck",
+              sizes: "(max-width: 900px) 100vw, 52vw",
+              loading: "eager",
+              fetchpriority: "high",
+            })}
           </div>
         </div>
       </section>
@@ -1138,14 +1438,16 @@ function homepage() {
         </div>
       </section>
       <section class="section reviews-section" id="reviews">
-        <div class="review-copy"><p class="eyebrow">Trust signals</p><h2>The kind of plumbing visit people remember for the right reasons.</h2><p>Real reviews should be connected before launch. The site is structured to feature trust proof without inventing review ratings.</p></div>
+        <div class="review-copy"><p class="eyebrow">Trust signals</p><h2>The kind of plumbing visit people remember for the right reasons.</h2><p>Pacific Plumbing's public review profile highlights reliable service, clear communication, clean work, and practical repair options.</p></div>
         <div class="reviews">
-          <blockquote><p>"They explained the issue clearly, gave us options, and had hot water back the same day."</p><cite>Water heater customer</cite></blockquote>
-          <blockquote><p>"The crew was clean, quick, and honest about what needed to be fixed now versus later."</p><cite>Re-pipe customer</cite></blockquote>
+          ${crawlableReviews.slice(0, 2).map((review) => `<blockquote><p>${esc(review.summary)}</p><cite>${esc(review.author)}</cite></blockquote>`).join("")}
         </div>
       </section>
       <section class="section campaign-section">
-        <div class="campaign-image"><img src="assets/pacific-billboard.png" alt="Pacific Plumbing billboard with Ready for Slippery Situations campaign"></div>
+        <div class="campaign-image">${responsiveImage("assets/pacific-billboard.png", {
+          alt: "Pacific Plumbing billboard with Ready for Slippery Situations campaign",
+          sizes: "(max-width: 760px) 100vw, 48vw",
+        })}</div>
         <div class="campaign-copy"><p class="eyebrow">A brand Tulsa will remember</p><h2>Memorable on the road. Reliable in your home.</h2><p>The campaign gets attention. The website turns that attention into confidence by pairing the playful billboard with grounded proof: service clarity, local pride, and practical plumbing expertise.</p><a class="text-link" ${bookingLinkAttrs("", "campaign_section")}>Schedule service</a></div>
       </section>
       <section class="section areas-section" id="areas">
@@ -1219,7 +1521,15 @@ function servicePage(service) {
     },
     faqSchema(service.faqs),
   ];
-  return `${head({ title: service.title, description: service.description, path, prefix: "../", schema, ogImage: heroImage })}
+  return `${head({
+    title: service.title,
+    description: service.description,
+    path,
+    prefix: "../",
+    schema,
+    ogImage: heroImage,
+    preload: preloadImage(heroImage, "(max-width: 760px) 100vw, 46vw"),
+  })}
   <body>
     ${nav("../")}
     <main>
@@ -1234,7 +1544,13 @@ function servicePage(service) {
             <a class="button button-light button-large" ${bookingLinkAttrs("../", "service_hero")}>Book Online</a>
           </div>
         </div>
-        <div class="page-hero-image"><img src="../${heroImage}" alt="${esc(heroImageAlt)}"></div>
+        <div class="page-hero-image">${responsiveImage(heroImage, {
+          prefix: "../",
+          alt: heroImageAlt,
+          sizes: "(max-width: 760px) 100vw, 46vw",
+          loading: "eager",
+          fetchpriority: "high",
+        })}</div>
       </section>
       <section class="section detail-section">
         <div class="detail-main">
@@ -1268,6 +1584,7 @@ function servicePage(service) {
 
 function locationPage(location) {
   const path = `service-areas/${location.slug}.html`;
+  const context = locationContext[location.slug];
   const schema = [
     localBusinessSchema(),
     breadcrumbSchema([
@@ -1317,7 +1634,15 @@ function locationPage(location) {
     faqSchema(location.faqs),
   ];
 
-  return `${head({ title: location.title, description: location.description, path, prefix: "../", schema, ogImage: location.image })}
+  return `${head({
+    title: location.title,
+    description: location.description,
+    path,
+    prefix: "../",
+    schema,
+    ogImage: location.image,
+    preload: preloadImage(location.image, "(max-width: 760px) 100vw, 46vw"),
+  })}
   <body>
     ${nav("../")}
     <main>
@@ -1338,7 +1663,13 @@ function locationPage(location) {
           </div>
         </div>
         <figure class="page-hero-image location-image">
-          <img src="../${location.image}" alt="${esc(location.imageAlt)}">
+          ${responsiveImage(location.image, {
+            prefix: "../",
+            alt: location.imageAlt,
+            sizes: "(max-width: 760px) 100vw, 46vw",
+            loading: "eager",
+            fetchpriority: "high",
+          })}
           <figcaption>Image: <a href="${location.imageCreditUrl}">${esc(location.imageCredit)}</a> · ${esc(location.license)}</figcaption>
         </figure>
       </section>
@@ -1357,6 +1688,11 @@ function locationPage(location) {
           <article class="content-panel">
             <h2>How Pacific helps ${esc(location.city)} homes.</h2>
             <ul class="check-list">${location.localDetails.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
+          </article>
+          <article class="content-panel local-context-panel">
+            <h2>${esc(context.heading)}</h2>
+            <p class="panel-copy">${esc(context.copy)}</p>
+            <div class="local-issue-tags">${context.problems.map((problem) => `<span>${esc(problem)}</span>`).join("")}</div>
           </article>
           <article class="content-panel">
             <h2>Common ${esc(location.city)} plumbing searches.</h2>
@@ -1389,16 +1725,27 @@ function supportPage(page) {
   ];
   const heroImage =
     page.type === "contact"
-      ? `<div class="contact-hero-image"><img src="assets/banana-contact.png" alt="Pacific Plumbing mascot giving a thumbs up"></div>`
+      ? `<div class="contact-hero-image">${responsiveImage("assets/banana-contact.png", {
+          alt: "Pacific Plumbing mascot giving a thumbs up",
+          loading: "eager",
+          fetchpriority: "high",
+        })}</div>`
       : "";
   const extra = {
     areas: `<div class="service-area-hub"><div class="section-heading"><p class="eyebrow">Local plumbing pages</p><h2>Plumbing service areas across the Tulsa metro.</h2><p>Pacific Plumbing now has dedicated community pages for nearby cities so homeowners can find local plumbing service, core service links, and clear next steps by location.</p></div><div class="area-card-grid">${locationCards("")}</div><div class="area-list large">${areaChips("")}</div></div>`,
     about: `<div class="process-grid"><article><span>01</span><h3>Memorable brand</h3><p>The campaign helps Pacific stand out in a crowded local service market.</p></article><article><span>02</span><h3>Serious service</h3><p>The site balances personality with trust, process, and practical homeowner guidance.</p></article><article><span>03</span><h3>Local growth</h3><p>The SEO structure gives Pacific room to grow into more service and city pages.</p></article></div>`,
-    reviews: `<div class="reviews-widget-panel"><script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script><iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/4mPRHVXqYPl9T4aDVlLP?widgetId=69f0df14597a8fdefb7e82b1' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe></div>`,
+    reviews: `${crawlableReviewsSection()}<div class="reviews-widget-panel"><script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script><iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/4mPRHVXqYPl9T4aDVlLP?widgetId=69f0df14597a8fdefb7e82b1' title='Pacific Plumbing customer reviews' loading='lazy' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe></div>`,
     contact: `<div class="content-panel contact-booking-panel"><p class="eyebrow">Online booking</p><h2>Start with your service ZIP code.</h2><p>Click below to open the booking window. Pacific Plumbing will check whether the ZIP is in the online service area before asking for your contact details.</p><div class="hero-actions"><a class="button button-primary button-large" ${bookingLinkAttrs("", "contact_page")}>Book Online</a><a class="button button-light button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="contact_page">Call ${site.phone}</a></div></div>`,
     thankyou: `<div class="content-panel thank-you-panel"><h2>Next step</h2><p>For urgent leaks, sewer backups, or active water damage, call now instead of waiting on a form response.</p><div class="hero-actions"><a class="button button-primary button-large" href="${site.phoneHref}" data-track="phone_click" data-track-location="thank_you">Call ${site.phone}</a><a class="button button-light button-large" href="services/">View Services</a></div></div>`,
   };
-  return `${head({ title: page.title, description: page.description, path: page.path, schema, noindex: page.noindex })}
+  return `${head({
+    title: page.title,
+    description: page.description,
+    path: page.path,
+    schema,
+    noindex: page.noindex,
+    preload: page.type === "contact" ? preloadImage("assets/banana-contact.png", "(max-width: 760px) 70vw, 330px") : "",
+  })}
   <body>
     ${nav("")}
     <main>
@@ -1435,6 +1782,7 @@ function notFoundPage() {
 }
 
 function sitemap() {
+  const lastmod = new Date().toISOString().slice(0, 10);
   const paths = [
     "",
     "services/",
@@ -1442,9 +1790,21 @@ function sitemap() {
     ...locationPages.map((location) => `service-areas/${location.slug}.html`),
     ...supportPages.filter((page) => !page.noindex).map((page) => page.path),
   ];
+  const urlEntries = paths
+    .map((path) => {
+      const priority = path === "" ? "1.0" : path.startsWith("services/") ? "0.9" : path.startsWith("service-areas/") ? "0.85" : "0.7";
+      return `  <url>
+    <loc>${absolute(path)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+    })
+    .join("\n");
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${paths.map((path) => `  <url><loc>${absolute(path)}</loc><changefreq>monthly</changefreq><priority>${path === "" ? "1.0" : path.startsWith("services/") ? "0.9" : path.startsWith("service-areas/") ? "0.85" : "0.7"}</priority></url>`).join("\n")}
+${urlEntries}
 </urlset>
 `;
 }

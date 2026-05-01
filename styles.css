@@ -1261,8 +1261,8 @@ blockquote cite {
 
 .area-card-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+  gap: 14px;
 }
 
 .area-card {
@@ -1279,25 +1279,26 @@ blockquote cite {
 
 .area-card:hover {
   border-color: rgba(8, 120, 184, 0.32);
-  box-shadow: var(--shadow);
-  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(3, 27, 52, 0.12);
+  transform: translateY(-4px);
 }
 
 .area-card img {
   width: 100%;
-  aspect-ratio: 1.35 / 1;
+  height: clamp(112px, 10vw, 142px);
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
 .area-card span {
   display: grid;
-  gap: 8px;
-  padding: 20px;
+  gap: 5px;
+  padding: 13px 14px 15px;
 }
 
 .area-card small {
   color: var(--gold);
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   font-style: normal;
   font-weight: 950;
   letter-spacing: 0.08em;
@@ -1306,13 +1307,19 @@ blockquote cite {
 
 .area-card strong {
   color: var(--navy);
-  font-size: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.15;
 }
 
 .area-card em {
+  display: -webkit-box;
+  overflow: hidden;
   color: var(--muted);
+  font-size: 0.86rem;
   font-style: normal;
-  line-height: 1.55;
+  line-height: 1.38;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .location-meta {
@@ -1777,7 +1784,6 @@ body.modal-open {
 
   .service-grid,
   .process-grid,
-  .area-card-grid,
   .review-highlight-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1936,7 +1942,6 @@ body.modal-open {
 
   .service-grid,
   .process-grid,
-  .area-card-grid,
   .review-highlight-grid,
   .service-link-grid,
   .form-grid {
@@ -1945,6 +1950,16 @@ body.modal-open {
 
   .location-image img {
     min-height: 260px;
+  }
+
+  .area-card {
+    grid-template-columns: 118px minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .area-card img {
+    height: 100%;
+    min-height: 112px;
   }
 
   .service-grid {

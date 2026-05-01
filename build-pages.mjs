@@ -47,7 +47,7 @@ const site = {
   ],
 };
 
-const scriptVersion = "seo-optimization-14";
+const scriptVersion = "compact-area-cards-15";
 
 const imageMeta = {
   "assets/area-bixby.jpg": { width: 640, height: 480, optimized: true },

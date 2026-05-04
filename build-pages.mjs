@@ -1152,6 +1152,13 @@ function analyticsHead() {
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","${esc(site.googleAnalyticsId)}");window.pacificTracking={site:"${esc(site.name)}",domain:"${site.baseUrl}",phone:"${site.phoneE164}"};</script>`;
 }
 
+function nextLeadTrackingHead() {
+  return `<script
+      src="https://links.nextleadpro.com/js/external-tracking.js"
+      data-tracking-id="tk_1e1779e977784d8cb6b8d55d4beeac14">
+    </script>`;
+}
+
 function head({
   title,
   description,
@@ -1192,6 +1199,7 @@ function head({
     <meta name="twitter:image" content="${shareImage}">
     <link rel="stylesheet" href="${prefix}styles.css?v=${scriptVersion}">
     ${analyticsHead()}
+    ${nextLeadTrackingHead()}
     ${schema.map(jsonLd).join("\n    ")}
   </head>`;
 }

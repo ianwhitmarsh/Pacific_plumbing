@@ -1201,6 +1201,7 @@ function head({
     ${analyticsHead()}
     ${nextLeadTrackingHead()}
     ${schema.map(jsonLd).join("\n    ")}
+    <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
   </head>`;
 }
 
